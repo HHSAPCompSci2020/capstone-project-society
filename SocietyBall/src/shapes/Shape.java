@@ -5,7 +5,7 @@ import processing.core.PApplet;
 
 /**
  * 
- * @author Richard Zhang
+ * @author Daniel Huber and Richard Zhang
  * 
  *
  */
@@ -26,6 +26,12 @@ public class Shape {
 		filled = false;
 	}
 
+	
+	public void act() {
+		
+	}
+	
+	
 	/**
 	 * The shape takes a new coordinate point and moves there. Could be from
 	 * mouse(for mines) or for user input with(wasd/arrow keys)
@@ -33,23 +39,12 @@ public class Shape {
 	 * @param xNew New X value assigned
 	 * @param yNew New Y value assigned
 	 */
-	public void move(double xNew, double yNew) {
-		
+	public void move(double newX, double newY) {
+		x = newX;
+		y = newY;
 	}
 
-	/**
-	 * Draws a new instance of a shape object.
-	 * 
-	 * @param surface used to access the method to draw the shapes
-	 **/
-	public void draw(PApplet surface) {
-		if (filled)
-			surface.fill(fillColor.getRed(), fillColor.getGreen(), fillColor.getBlue());
-		else
-			surface.noFill();
-		surface.strokeWeight(stroke);
-		surface.stroke(strokeColor.getRed(), strokeColor.getGreen(), strokeColor.getBlue());
-	}
+	
 
 	/**
 	 * Checks if the point is inside the shape. Will be used to check collisions
@@ -98,4 +93,19 @@ public class Shape {
 		this.y = y;
 	}
 
+	
+	/**
+	 * Draws a new instance of a shape object.
+	 * 
+	 * @param surface used to access the method to draw the shapes
+	 **/
+	public void draw(PApplet surface) {
+		if (filled)
+			surface.fill(fillColor.getRed(), fillColor.getGreen(), fillColor.getBlue());
+		else
+			surface.noFill();
+		surface.strokeWeight(stroke);
+		surface.stroke(strokeColor.getRed(), strokeColor.getGreen(), strokeColor.getBlue());
+	}
+	
 }
