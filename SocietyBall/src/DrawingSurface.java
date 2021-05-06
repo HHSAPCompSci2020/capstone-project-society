@@ -5,6 +5,13 @@ import javax.swing.JFrame;
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 
+
+/**
+ * 
+ * @author Daniel Huber
+ * 
+ *
+ */
 public class DrawingSurface extends PApplet {
 
 	public void draw() { 
