@@ -9,7 +9,7 @@ import processing.core.PApplet;
  * 
  *
  */
-public abstract class Shape {
+public class Shape {
 	protected double x, y;
 	private Color fillColor, strokeColor;
 	private int stroke;
@@ -33,7 +33,9 @@ public abstract class Shape {
 	 * @param xNew New X value assigned
 	 * @param yNew New Y value assigned
 	 */
-	public abstract void move(double xNew, double yNew);
+	public void move(double xNew, double yNew) {
+		
+	}
 
 	/**
 	 * Draws a new instance of a shape object.
@@ -56,7 +58,9 @@ public abstract class Shape {
 	 * @param yInput new y-Coordinate
 	 * @return if the point is inside the shape
 	 */
-	public abstract boolean isPointInside(double xInput, double yInput);
+	public boolean isPointInside(double xInput, double yInput) {
+		return false;
+	}
 
 	/**
 	 * Outputs field x
