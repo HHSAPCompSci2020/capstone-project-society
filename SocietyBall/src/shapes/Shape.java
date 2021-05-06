@@ -1,4 +1,4 @@
-package SocietyBall.shapes;
+package shapes;
 import java.awt.Color;
 import processing.core.PApplet;
 
