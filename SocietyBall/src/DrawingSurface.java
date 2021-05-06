@@ -12,7 +12,7 @@ public class DrawingSurface extends PApplet {
 		
 		textSize(12);
 		fill(0);
-		text("Use the mouse wheel to change length, use UP/DOWN keys to change level.",0,15);
+		//text("Use the mouse wheel to change length, use UP/DOWN keys to change level.",0,15);
 		
 		stroke(0);
 		//curve2.draw(this);		
