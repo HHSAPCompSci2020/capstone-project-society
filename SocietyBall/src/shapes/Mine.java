@@ -8,7 +8,7 @@ public class Mine extends Shape {
 	}
 
 	@Override
-	public void shift(double xMouse, double yMouse) {
+	public void move(double xMouse, double yMouse) {
 		// TODO Auto-generated method stub
 		
 	}
