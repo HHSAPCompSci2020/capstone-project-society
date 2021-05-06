@@ -3,6 +3,12 @@ package shapes;
 import java.awt.Color;
 import processing.core.PApplet;
 
+/**
+ * 
+ * @author Richard Zhang
+ * 
+ *
+ */
 public abstract class Shape {
 	protected double x, y;
 	private Color fillColor, strokeColor;
@@ -20,8 +26,20 @@ public abstract class Shape {
 		filled = false;
 	}
 
-	public abstract void shift(double xMouse, double yMouse);
+	/**
+	 * The shape takes a new coordinate point and shifts there. Could be from
+	 * mouse(for mines) or for user input with(wasd/arrow keys)
+	 * 
+	 * @param xNew New X value assigned
+	 * @param yNew New Y value assigned
+	 */
+	public abstract void shift(double xNew, double yNew);
 
+	/**
+	 * Draws a new instance of a shape object.
+	 * 
+	 * @param surface used to access the method to draw the shapes
+	 **/
 	public void draw(PApplet surface) {
 		if (filled)
 			surface.fill(fillColor.getRed(), fillColor.getGreen(), fillColor.getBlue());
@@ -31,6 +49,49 @@ public abstract class Shape {
 		surface.stroke(strokeColor.getRed(), strokeColor.getGreen(), strokeColor.getBlue());
 	}
 
+	/**
+	 * Checks if the point is inside the shape. Will be used to check collisions
+	 * 
+	 * @param xInput new xCoordinate
+	 * @param yInput new y-Coordinate
+	 * @return if the point is inside the shape
+	 */
 	public abstract boolean isPointInside(double xInput, double yInput);
+
+	/**
+	 * Outputs field x
+	 * 
+	 * @return x x-value
+	 */
+	public double getX() {
+		return x;
+	}
+
+	/**
+	 * Outputs field y
+	 * 
+	 * @return y y-value
+	 */
+	public double getY() {
+		return y;
+	}
+
+	/**
+	 * Sets field x to a new parameter
+	 * 
+	 * @param x new x value
+	 */
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	/**
+	 * Sets field y to a new parameter.
+	 * 
+	 * @param y new y value
+	 */
+	public void setY(double y) {
+		this.y = y;
+	}
 
 }
