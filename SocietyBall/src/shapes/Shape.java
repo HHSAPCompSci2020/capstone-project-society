@@ -27,13 +27,13 @@ public abstract class Shape {
 	}
 
 	/**
-	 * The shape takes a new coordinate point and shifts there. Could be from
+	 * The shape takes a new coordinate point and moves there. Could be from
 	 * mouse(for mines) or for user input with(wasd/arrow keys)
 	 * 
 	 * @param xNew New X value assigned
 	 * @param yNew New Y value assigned
 	 */
-	public abstract void shift(double xNew, double yNew);
+	public abstract void move(double xNew, double yNew);
 
 	/**
 	 * Draws a new instance of a shape object.
