@@ -2,21 +2,26 @@ package shapes;
 
 public class Paddle extends Shape {
 
+	private float length, width;
+
 	public Paddle(double x, double y) {
 		super(x, y);
-		// TODO Auto-generated constructor stub
+		length = 20f;
+		width = 5f;
 	}
 
 	@Override
 	public void move(double xMouse, double yMouse) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public boolean isPointInside(double xInput, double yInput) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean inside = false;
+		if (x < xInput && xInput < x + width && y < yInput && yInput < y + length)
+			inside = true;
+		return inside;
 	}
 
 }
