@@ -20,10 +20,7 @@ public abstract class Shape {
 		filled = false;
 	}
 
-	public void shift(double xMouse, double yMouse) {
-		x = xMouse;
-		y = yMouse;
-	}
+	public abstract void shift(double xMouse, double yMouse);
 
 	public void draw(PApplet surface) {
 		if (filled)
