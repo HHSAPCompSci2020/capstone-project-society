@@ -10,12 +10,16 @@ import processing.core.PApplet;
  *
  */
 public class Shape {
-	protected double x, y;
+	protected static double x;
+	protected static double y;
 	private Color fillColor, strokeColor;
 	private int stroke;
 	protected double length, width;
-	protected double xVelocity, yVelocity;
+	protected static double xVelocity = 1;
+	protected static double yVelocity = 1;
 	private boolean filled;
+	private int windowLength = 400;
+	private int windowHeight = 300;
 
 	public Shape(double x, double y) {
 		this.x = x;
@@ -28,7 +32,14 @@ public class Shape {
 
 	
 	public void act() {
-		
+		double x = Shape.getX();
+		double y = Shape.getY();
+		Shape.move(x, y);
+
+		if(0 > Shape.getX() || Shape.getX() > windowLength || 0 > Shape.getY() || Shape.getY() > windowHeight) {
+			xVelocity = -xVelocity;
+			yVelocity = -yVelocity;
+		}	
 	}
 	
 	
@@ -39,9 +50,9 @@ public class Shape {
 	 * @param xNew New X value assigned
 	 * @param yNew New Y value assigned
 	 */
-	public void move(double newX, double newY) {
-		x = newX;
-		y = newY;
+	public static void move(double newX, double newY) {
+		x = newX + xVelocity;
+		y = newY + yVelocity;
 	}
 
 	
@@ -62,7 +73,7 @@ public class Shape {
 	 * 
 	 * @return x x-value
 	 */
-	public double getX() {
+	public static double getX() {
 		return x;
 	}
 
@@ -71,7 +82,7 @@ public class Shape {
 	 * 
 	 * @return y y-value
 	 */
-	public double getY() {
+	public static double getY() {
 		return y;
 	}
 
@@ -91,8 +102,8 @@ public class Shape {
 	 */
 	public void setY(double y) {
 		this.y = y;
-	}
-
+	} 
+	
 	
 	/**
 	 * Draws a new instance of a shape object.
