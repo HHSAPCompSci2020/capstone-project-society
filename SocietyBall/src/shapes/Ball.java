@@ -4,11 +4,11 @@ import processing.core.PApplet;
 
 public class Ball extends Shape {
 
-	private final float radius;
+	private final float extent;
 
 	public Ball(double x, double y) {
 		super(x, y);
-		radius = 20f;
+		extent = 20f;
 	}
 
 	
@@ -19,8 +19,8 @@ public class Ball extends Shape {
 
 	public boolean isPointInside(double xInput, double yInput) {
 		boolean isInside = false;
-		if ((xInput > x - 0.5 * radius && xInput < x + 0.5 * radius)
-				&& (y - 0.5 * radius < yInput && yInput < y + 0.5 * radius)) {
+		if ((xInput > x - 0.5 * extent && xInput < x + 0.5 * extent)
+				&& (y - 0.5 * extent < yInput && yInput < y + 0.5 * extent)) {
 
 			isInside = true;
 		}
@@ -30,7 +30,8 @@ public class Ball extends Shape {
 
 	public void draw(PApplet surface) {
 		super.draw(surface);
-		surface.circle((float) x, (float) y, radius);
+		surface.color(0, 0, 255);
+		surface.circle((float) x, (float) y, extent);
 	}
 
 }
