@@ -10,13 +10,13 @@ import processing.core.PApplet;
  *
  */
 public class Shape {
-	protected static double x;
-	protected static double y;
+	protected double x;
+	protected double y;
 	private Color fillColor, strokeColor;
 	private int stroke;
 	protected double length, width;
-	protected static double xVelocity = 1;
-	protected static double yVelocity = 1;
+	protected double xVelocity = 1;
+	protected double yVelocity = 1;
 	private boolean filled;
 	private int windowLength = 400;
 	private int windowHeight = 300;
@@ -30,19 +30,17 @@ public class Shape {
 		filled = false;
 	}
 
-	
 	public void act() {
-		double x = Shape.getX();
-		double y = Shape.getY();
-		Shape.move(x, y);
+//		double x = this.x;
+//		double y = this.y;
+		move(x, y);
 
-		if(0 > Shape.getX() || Shape.getX() > windowLength || 0 > Shape.getY() || Shape.getY() > windowHeight) {
+		if (0 > x || x > windowLength || 0 > y || y > windowHeight) {
 			xVelocity = -xVelocity;
 			yVelocity = -yVelocity;
-		}	
+		}
 	}
-	
-	
+
 	/**
 	 * The shape takes a new coordinate point and moves there. Could be from
 	 * mouse(for mines) or for user input with(wasd/arrow keys)
@@ -50,12 +48,10 @@ public class Shape {
 	 * @param xNew New X value assigned
 	 * @param yNew New Y value assigned
 	 */
-	public static void move(double newX, double newY) {
+	public void move(double newX, double newY) {
 		x = newX + xVelocity;
 		y = newY + yVelocity;
 	}
-
-	
 
 	/**
 	 * Checks if the point is inside the shape. Will be used to check collisions
@@ -73,7 +69,7 @@ public class Shape {
 	 * 
 	 * @return x x-value
 	 */
-	public static double getX() {
+	public double getX() {
 		return x;
 	}
 
@@ -82,7 +78,7 @@ public class Shape {
 	 * 
 	 * @return y y-value
 	 */
-	public static double getY() {
+	public double getY() {
 		return y;
 	}
 
@@ -102,9 +98,8 @@ public class Shape {
 	 */
 	public void setY(double y) {
 		this.y = y;
-	} 
-	
-	
+	}
+
 	/**
 	 * Draws a new instance of a shape object.
 	 * 
@@ -118,5 +113,5 @@ public class Shape {
 		surface.strokeWeight(stroke);
 		surface.stroke(strokeColor.getRed(), strokeColor.getGreen(), strokeColor.getBlue());
 	}
-	
+
 }
