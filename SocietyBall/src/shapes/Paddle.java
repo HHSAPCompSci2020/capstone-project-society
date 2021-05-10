@@ -10,11 +10,7 @@ public class Paddle extends Shape {
 		width = 5f;
 	}
 
-	@Override
-	public void move(double xMouse, double yMouse) {
-		// TODO Auto-generated method stub
 
-	}
 
 	@Override
 	public boolean isPointInside(double xInput, double yInput) {

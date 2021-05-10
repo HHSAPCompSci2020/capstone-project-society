@@ -11,11 +11,7 @@ public class Ball extends Shape {
 		extent = 20f;
 	}
 
-	
-	public void move(double xMouse, double yMouse) {
-		x = xMouse;
-		y = yMouse;
-	}
+
 
 	public boolean isPointInside(double xInput, double yInput) {
 		boolean isInside = false;
