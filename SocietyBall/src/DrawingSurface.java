@@ -10,9 +10,9 @@ import shapes.Paddle;
 
 /**
  * 
- * @author Daniel Huber
+ * @author Daniel Huber and Richard Zhang
  * 
- *
+ * 
  */
 public class DrawingSurface extends PApplet {
 
@@ -26,6 +26,7 @@ public class DrawingSurface extends PApplet {
 		b = new Ball(10,10);
 		p1 = new Paddle(50, 100);
 		p2 = new Paddle(350, 100);
+
 	}
 
 	
@@ -38,6 +39,15 @@ public class DrawingSurface extends PApplet {
 		m.draw(this);	
 		p1.draw(this);
 		p2.draw(this);
+		
+		pushStyle();
+		
+		fill(0);
+		textSize(10);
+		text("press b to start ball moving",15,15);
+	
+		popStyle();
+		
 		
 	}	
 	
@@ -65,5 +75,8 @@ public class DrawingSurface extends PApplet {
 			if(keyCode == LEFT)
 				p2.move(-2, 0);
 			
+			if (key == 'b') {
+				b.move((Math.random()-.5)*2, (Math.random()-.5)*2);
+			}
 	}
 }
