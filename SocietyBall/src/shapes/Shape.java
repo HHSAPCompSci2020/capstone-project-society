@@ -107,7 +107,22 @@ public class Shape {
 	public void setY(double y) {
 		this.y = y;
 	}
-
+	/**
+	 * Sets field vX to a new parameter.
+	 * 
+	 * @param vX new vX value
+	 */
+	public void setvX (double vX) {
+		this.vX = vX;
+	}
+	/**
+	 * Sets field vY to a new parameter.
+	 * 
+	 * @param vY new vY value
+	 */
+	public void setvY (double vY) {
+		this.vY = vY;
+	}
 	/**
 	 * Draws a new instance of a shape object.
 	 * 
