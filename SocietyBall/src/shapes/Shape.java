@@ -55,7 +55,9 @@ public class Shape {
 	public void move(double newX, double newY) {
 		x = newX;
 		y = newY;
+		System.out.println("move");
 	}
+	
 
 	/**
 	 * Checks if the point is inside the shape. Will be used to check collisions

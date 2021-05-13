@@ -19,16 +19,17 @@ public class DrawingSurface extends PApplet {
 	private Paddle p;
 	private Ball b;
 	private Mine m;
+	private Paddle p1;
+	private Paddle p2;
 	
 	public DrawingSurface() {
 		p = new Paddle(10,10);
 		m = new Mine(20,100);
 		b = new Ball(10,10);
-		
-		
+		p1 = new Paddle(50, 100);
+		p2 = new Paddle(350, 100);
 	}
-	private Paddle p1;
-	private Paddle p2;
+
 	
 	public void draw() {
 		background(255); // Clear the screen with a white background
@@ -36,15 +37,13 @@ public class DrawingSurface extends PApplet {
 		fill(0);
 
 		b.draw(this);
-
 		m.draw(this);
-		
 		p.draw(this);
-		p1 = new Paddle(50, 100);
+		
 		p1.draw(this);
 
 
-		p2 = new Paddle(350, 100);
+		
 		p2.draw(this);
 		
 	}	
@@ -52,6 +51,10 @@ public class DrawingSurface extends PApplet {
 	public void keyPressed() {
 			if(key == 'w' ) {
 				p1.move(20,20);
+				System.out.println(p1.getX() + " " + p1.getY());
+				System.out.println("KEY");
 			}
+			
+			
 	}
 }

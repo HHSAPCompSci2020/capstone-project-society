@@ -24,6 +24,7 @@ public class Paddle extends Shape {
 	public void draw(PApplet surface) {
 		super.draw(surface);
 		surface.rect((float) x, (float) y, (float) width, (float) length);
+		System.out.println(x + " " + y);
 	}
 	
 	
