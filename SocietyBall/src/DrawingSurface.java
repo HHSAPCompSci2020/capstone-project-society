@@ -39,6 +39,8 @@ public class DrawingSurface extends PApplet {
 		p1.draw(this);
 		p2.draw(this);
 		
+//		if(p1.isPointInside(b.getX(), b.getY()))
+			
 	}	
 	
 	public void keyPressed() {
