@@ -38,12 +38,8 @@ public class DrawingSurface extends PApplet {
 
 		b.draw(this);
 		m.draw(this);
-		p.draw(this);
-		
+		p.draw(this);		
 		p1.draw(this);
-
-
-		
 		p2.draw(this);
 		
 	}	

@@ -53,8 +53,8 @@ public class Shape {
 	 * @param yNew New Y value assigned
 	 */
 	public void move(double newX, double newY) {
-		x = newX;
-		y = newY;
+		x += vX;
+		y += vY;
 		System.out.println("move");
 	}
 	
