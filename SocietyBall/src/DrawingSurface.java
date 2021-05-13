@@ -55,5 +55,15 @@ public class DrawingSurface extends PApplet {
 				p1.move(0,2);
 			} 
 			
+			if(keyCode == UP) {
+				p2.move(0,-2);
+			}
+			if(keyCode == DOWN)
+				p2.move(0, 2);
+			if(keyCode == RIGHT)
+				p2.move(2, 0);
+			if(keyCode == LEFT)
+				p2.move(-2, 0);
+			
 	}
 }
