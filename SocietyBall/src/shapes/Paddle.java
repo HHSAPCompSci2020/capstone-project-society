@@ -26,7 +26,22 @@ public class Paddle extends Shape {
 		surface.rect((float) x, (float) y, (float) width, (float) length);
 		System.out.println(x + " " + y);
 	}
-	
-	
+
+	public void sprint(boolean sprinting) {
+		boolean sprinted = false;
+		if (sprinting) {
+			vX = 2 * vX;
+			vY = 2 * vY;
+			sprinted = true;
+		}
+		else if(sprinted) {
+			vX = 0.5 * vX;
+			vY = 0.5 * vY;
+		}
+		
+		
+			
+
+	}
 
 }
