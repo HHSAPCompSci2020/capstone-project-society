@@ -38,6 +38,7 @@ public class Shape {
 	public void act() {
 		move(x, y);
 
+		// If this is hitting the top or bottom; 
 		if (0 > x || x > windowLength || 0 > y || y > windowHeight) {
 			vX = -vX;
 			vY = -vY;
