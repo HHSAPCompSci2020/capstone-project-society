@@ -16,14 +16,12 @@ import shapes.Paddle;
  */
 public class DrawingSurface extends PApplet {
 
-	private Paddle p;
 	private Ball b;
 	private Mine m;
 	private Paddle p1;
 	private Paddle p2;
 	
 	public DrawingSurface() {
-		p = new Paddle(10,10);
 		m = new Mine(20,100);
 		b = new Ball(10,10);
 		p1 = new Paddle(50, 100);
@@ -37,8 +35,7 @@ public class DrawingSurface extends PApplet {
 		fill(0);
 
 		b.draw(this);
-		m.draw(this);
-		p.draw(this);		
+		m.draw(this);	
 		p1.draw(this);
 		p2.draw(this);
 		
