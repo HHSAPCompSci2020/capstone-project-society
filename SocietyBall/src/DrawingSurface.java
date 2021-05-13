@@ -45,12 +45,18 @@ public class DrawingSurface extends PApplet {
 	}	
 	
 	public void keyPressed() {
-			if(key == 'w' ) {
-				p1.move(20,20);
-				//System.out.println(p1.getX() + " " + p1.getY());
-				//System.out.println("KEY");
-			}
-			
+			if (key == 'w' ) {
+				p1.move(0,-2);
+			} 
+			if (key == 'd' ) {
+				p1.move(2,0);
+			} 
+			if (key == 'a' ) {
+				p1.move(-2,0);
+			} 
+			if (key == 's' ) {
+				p1.move(0,2);
+			} 
 			
 	}
 }
