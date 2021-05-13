@@ -49,8 +49,8 @@ public class Shape {
 	 * The shape takes a new coordinate point and moves there. Could be from
 	 * mouse(for mines) or for user input with(wasd/arrow keys)
 	 * 
-	 * @param xNew New X value assigned
-	 * @param yNew New Y value assigned
+	 * @param newX New X value assigned
+	 * @param newY New Y value assigned
 	 */
 	public void move(double newX, double newY) {
 		vX = newX;

@@ -1,11 +1,11 @@
 ﻿Society Ball 
 Authors: Daniel Huber, Richard Zhang, Ryan Tsai
-Revision: 5/6/21
+Revision: 5/13/21
 
 
 Introduction: 
-In a few paragraphs totaling about ½ page, introduce the high-level concept of your program. What this looks like depends a lot on what type of thing you are making. An introduction for an application will look different than one for a game. In general, your introduction should address questions like these:
-What does your program do?
+In a few paragraphs totaling about ½ page, introduce the high-level concept of your program. What this looks like depends a lot on what type of thing you are making. An introduction for an application will look different than one for a game. In general, your introduction should address questions like these: 
+What does your program do? 
 Our program is meant to be played by two players who bounce a ball from one side of a net to the other. Each player can move their paddle in two dimensions to hit the ball. There are many features, like powerups, obstacles on the court, mines, etc, to add interest to the game.
 What problem does it solve? Why did you write it?
 It adds an interesting twist to the well-known game of Pong, but adding many different features that transforms it into a complex and interactive game.
@@ -52,7 +52,7 @@ Must-have Features:
    * For the right player:
       * Up Arrow is up, Left Arrow is left, Down Arrow is down, Right Arrow is right, Right Shift is sprint
 * The movement of the ball and paddles will be restricted
-   * The paddles will have to avoid obstacles and can not cross the net. If the paddle hits an obstacle, it can not continue moving in the direction, but instead bounces off. 
+   * The paddles will have to avoid obstacles and can not cross the net. If the paddle hits an obstacle, it can not continue moving in the direction, and will stop. 
    * The ball will bounce off of the top and bottom walls. If the ball hits one of the side walls, the round will end, as this means the player on the opposing side has won. The ball will bounce off of obstacles as it would off of walls. The ball is not affected by the net or by mines.
 * The paddles will be frozen for 2 seconds if they hit the mine(s).
    * Mines, presented in the diagram as small red circles, will act as special obstacles for the players. Before the game starts, each player will be allowed to place three mines on the opposing player’s side. The mines will remain there for the rest of the game. Players will have to take care to avoid mines, because if their paddle touches one, they will be frozen in place for two seconds.
@@ -113,7 +113,11 @@ Credits:
 
 
 We all have a focus as specified here, but we all help with all classes:
-Daniel - Paddle + DrawingSurface
-Richard - Ball + Shape
-Ryan - Mine + Obstacle
-We will do Shape together
+Daniel - Shape + DrawingSurface + Main
+* Worked on move methods
+* Finished main
+* Did shape and drawingsurface constructors
+Richard - Shape + Ball + Paddle + Mine
+* Worked on move methods
+* Helped with drawingsurface constructors
+Ryan - Obstacle
