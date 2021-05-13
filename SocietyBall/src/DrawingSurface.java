@@ -51,8 +51,8 @@ public class DrawingSurface extends PApplet {
 	public void keyPressed() {
 			if(key == 'w' ) {
 				p1.move(20,20);
-				System.out.println(p1.getX() + " " + p1.getY());
-				System.out.println("KEY");
+				//System.out.println(p1.getX() + " " + p1.getY());
+				//System.out.println("KEY");
 			}
 			
 			
