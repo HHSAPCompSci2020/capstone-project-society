@@ -51,9 +51,9 @@ public class Shape {
 	 * @param xNew New X value assigned
 	 * @param yNew New Y value assigned
 	 */
-	public void move(double mX, double mY) {
-		x = x + mX;
-		y = y + mY;
+	public void move(double newX, double newY) {
+		x = newX;
+		y = newY;
 	}
 
 	/**

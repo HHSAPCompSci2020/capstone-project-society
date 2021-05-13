@@ -8,6 +8,8 @@ public class Paddle extends Shape {
 
 	public Paddle(double x, double y) {
 		super(x, y);
+		this.x = x;
+		this.y = y;
 		length = 20f;
 		width = 5f;
 	}

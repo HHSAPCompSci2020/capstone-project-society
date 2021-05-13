@@ -27,6 +27,8 @@ public class DrawingSurface extends PApplet {
 		
 		
 	}
+	private Paddle p1;
+	private Paddle p2;
 	
 	public void draw() {
 		background(255); // Clear the screen with a white background
@@ -38,13 +40,18 @@ public class DrawingSurface extends PApplet {
 		m.draw(this);
 		
 		p.draw(this);
+		p1 = new Paddle(50, 100);
+		p1.draw(this);
 
+
+		p2 = new Paddle(350, 100);
+		p2.draw(this);
 		
 	}	
 	
-	public void keyReleased() {
+	public void keyPressed() {
 			if(key == 'w' ) {
-				p.move(1,1);
+				p1.move(20,20);
 			}
 	}
 }
