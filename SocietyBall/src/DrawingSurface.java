@@ -6,6 +6,7 @@ import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 import shapes.Ball;
 import shapes.Mine;
+import shapes.Paddle;
 
 /**
  * 
@@ -15,6 +16,8 @@ import shapes.Mine;
  */
 public class DrawingSurface extends PApplet {
 
+	private Paddle p;
+	
 	public void draw() {
 		background(255); // Clear the screen with a white background
 		textSize(12);
@@ -28,5 +31,16 @@ public class DrawingSurface extends PApplet {
 		Mine m = new Mine(20, 100);
 		m.draw(this);
 		stroke(0);
+		
+		p = new Paddle(10, 10);
+		p.draw(this);
+
+		
+	}	
+	
+	public void keyReleased() {
+			if(key == 'w' ) {
+				p.move(1,1);
+			}
 	}
 }

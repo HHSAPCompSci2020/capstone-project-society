@@ -15,12 +15,11 @@ public class Shape {
 	private Color fillColor, strokeColor;
 	private int stroke;
 	protected double length, width;
-	protected double xVelocity = 1;
-	protected double yVelocity = 1;
+	protected double vX = 1;
+	protected double vY = 1;
 	private boolean filled;
 	private int windowLength = 400;
 	private int windowHeight = 300;
-
 	public Shape(double x, double y) {
 		this.x = x;
 		this.y = y;
@@ -31,13 +30,11 @@ public class Shape {
 	}
 
 	public void act() {
-//		double x = this.x;
-//		double y = this.y;
 		move(x, y);
 
 		if (0 > x || x > windowLength || 0 > y || y > windowHeight) {
-			xVelocity = -xVelocity;
-			yVelocity = -yVelocity;
+			vX = -vX;
+			vY = -vY;
 		}
 	}
 
@@ -48,9 +45,9 @@ public class Shape {
 	 * @param xNew New X value assigned
 	 * @param yNew New Y value assigned
 	 */
-	public void move(double newX, double newY) {
-		x = newX + xVelocity;
-		y = newY + yVelocity;
+	public void move(double mX, double mY) {
+		x = x + mX;
+		y = y + mY;
 	}
 
 	/**
