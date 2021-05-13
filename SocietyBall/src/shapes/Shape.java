@@ -15,11 +15,11 @@ public class Shape {
 	private Color fillColor, strokeColor;
 	private int stroke;
 	protected double length, width;
-	protected double vX = 1;
-	protected double vY = 1;
+	protected double vX;
+	protected double vY;
 	private boolean filled;
-	private int windowLength = 400;
-	private int windowHeight = 300;
+	private int windowLength;
+	private int windowHeight;
 	
 	
 	public Shape(double x, double y) {
@@ -29,6 +29,10 @@ public class Shape {
 		strokeColor = Color.black;
 		fillColor = Color.white;
 		filled = false;
+		vX = 1;
+		vY = 1;
+		windowLength = 400;
+		windowHeight = 300;
 	}
 
 	public void act() {
