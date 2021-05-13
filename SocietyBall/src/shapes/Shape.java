@@ -20,6 +20,8 @@ public class Shape {
 	private boolean filled;
 	private int windowLength = 400;
 	private int windowHeight = 300;
+	
+	
 	public Shape(double x, double y) {
 		this.x = x;
 		this.y = y;
