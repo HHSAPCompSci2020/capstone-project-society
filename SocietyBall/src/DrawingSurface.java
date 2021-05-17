@@ -29,25 +29,18 @@ public class DrawingSurface extends PApplet {
 	private Mine mR3;
 	private Paddle p1;
 	private Paddle p2;
-<<<<<<< HEAD
 	private int height = 300;
 	private int length = 400;
 	private boolean hasGameStarted = false;
 	private int numLeftMines = 0;
 	private int numRightMines = 0;
-	
-	public DrawingSurface() {
-		b = new Ball(10,10);
-=======
-	private int height;
-	private int length;
-	private boolean hasGameStarted;
 	private Point random;
+	
+
 
 	public DrawingSurface() {
-		m = new Mine(20, 100);
+		
 		b = new Ball(10, 10);
->>>>>>> 0ee71cc3147f4e009be7b15010751da8d7d5c7be
 		p1 = new Paddle(50, 100);
 		p2 = new Paddle(350, 100);
 		height = 300;
@@ -63,10 +56,6 @@ public class DrawingSurface extends PApplet {
 		fill(0);
 
 		b.draw(this);
-<<<<<<< HEAD
-=======
-		m.draw(this);
->>>>>>> 0ee71cc3147f4e009be7b15010751da8d7d5c7be
 		p1.draw(this);
 		p2.draw(this);
 
@@ -74,7 +63,6 @@ public class DrawingSurface extends PApplet {
 
 		fill(0);
 		textSize(10);
-<<<<<<< HEAD
 		text("The left side can place 3 mines with left click. The right side can place 3 mines with right click.",15,15);
 	
 		popStyle();
@@ -87,44 +75,7 @@ public class DrawingSurface extends PApplet {
 	        }
 		}
 	}	
-	
-	public void keyPressed() {
-		// Paddle movements
-			if (key == 'w' && p1.getY() > 0) {
-				p1.move(0,-2);
-			} 
-			if (key == 'd' && p1.getX() < length/2) {
-				p1.move(2,0);
-			} 
-			if (key == 'a' && p1.getX() > 0) {
-				p1.move(-2,0);
-			} 
-			if (key == 's' && p1.getY() < height) {
-				p1.move(0,2);
-			} 
-			
-			if(keyCode == UP  && p2.getY() > 0) {
-				p2.move(0,-2);
-			}
-			if(keyCode == DOWN && p2.getY() < height)
-				p2.move(0, 2);
-			if(keyCode == RIGHT && p2.getX() < length)
-				p2.move(2, 0);
-			if(keyCode == LEFT && p2.getX() > length/2)
-				p2.move(-2, 0);
-			
-		//Ball movements
-			if (key == 'b') {
-				if (hasGameStarted) {
-					b.move((Math.random()-.5)*2, (Math.random()-.5)*2);
-				}
-				hasGameStarted = true;
-=======
-		text("press b to start ball moving", 15, 15);
 
-		popStyle();
-
-	}
 
 	public void keyPressed() {
 		if (key == 'w' && p1.getY() > 0) {
@@ -153,7 +104,6 @@ public class DrawingSurface extends PApplet {
 		if (key == 'b') {
 			if (hasGameStarted) {
 				b.move(random.getX(), random.getY());
->>>>>>> 0ee71cc3147f4e009be7b15010751da8d7d5c7be
 			}
 			hasGameStarted = true;
 		}
