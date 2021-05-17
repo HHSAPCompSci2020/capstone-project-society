@@ -36,6 +36,10 @@ public class Ball extends Shape {
 	public void act() {
 		x += vX;
 		y += vY;
+		if (0 > x || x > 400 || 0 > y || y > 300) {
+			vX = -vX;
+			vY = -vY;
+		}
 	}
 
 	public void move(double newX, double newY) {
