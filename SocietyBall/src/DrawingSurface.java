@@ -20,6 +20,8 @@ public class DrawingSurface extends PApplet {
 	private Mine m;
 	private Paddle p1;
 	private Paddle p2;
+	private int height = 300;
+	private int length = 400;
 	private boolean hasGameStarted = false;
 	
 	public DrawingSurface() {
@@ -53,27 +55,27 @@ public class DrawingSurface extends PApplet {
 	}	
 	
 	public void keyPressed() {
-			if (key == 'w' ) {
+			if (key == 'w' && p1.getY() > 0) {
 				p1.move(0,-2);
 			} 
-			if (key == 'd' ) {
+			if (key == 'd' && p1.getX() < length/2) {
 				p1.move(2,0);
 			} 
-			if (key == 'a' ) {
+			if (key == 'a' && p1.getX() > 0) {
 				p1.move(-2,0);
 			} 
-			if (key == 's' ) {
+			if (key == 's' && p1.getY() < height) {
 				p1.move(0,2);
 			} 
 			
-			if(keyCode == UP) {
+			if(keyCode == UP  && p2.getY() > 0) {
 				p2.move(0,-2);
 			}
-			if(keyCode == DOWN)
+			if(keyCode == DOWN && p2.getY() < height)
 				p2.move(0, 2);
-			if(keyCode == RIGHT)
+			if(keyCode == RIGHT && p2.getX() < length)
 				p2.move(2, 0);
-			if(keyCode == LEFT)
+			if(keyCode == LEFT && p2.getX() > length/2)
 				p2.move(-2, 0);
 			
 			if (key == 'b') {
