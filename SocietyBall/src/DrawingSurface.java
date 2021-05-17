@@ -31,11 +31,9 @@ public class DrawingSurface extends PApplet {
 	private int numLeftMines;
 	private int numRightMines;
 	private Point random;
-	
-
 
 	public DrawingSurface() {
-		
+
 		b = new Ball(10, 10);
 		p1 = new Paddle(50, 100);
 		p2 = new Paddle(350, 100);
@@ -56,7 +54,7 @@ public class DrawingSurface extends PApplet {
 		b.draw(this);
 		p1.draw(this);
 		p2.draw(this);
-//		b.act();
+		b.act();
 //		p1.act();
 //		p2.act();
 
@@ -64,21 +62,23 @@ public class DrawingSurface extends PApplet {
 
 		fill(0);
 		textSize(10);
-		text("The left side can place 3 mines with left click. The right side can place 3 mines with right click.",15,15);
-	
+		text("The left side can place 3 mines with left click. The right side can place 3 mines with right click.", 15,
+				15);
+
 		popStyle();
-		
+
 		if (hasGameStarted == true) {
-			if (left[0].isPointInside(left[0].getX(), left[0].getY()) || left[1].isPointInside(left[1].getX(), left[1].getY()) || left[2].isPointInside(left[2].getX(), left[2].getY())) {
+			if (left[0].isPointInside(left[0].getX(), left[0].getY())
+					|| left[1].isPointInside(left[1].getX(), left[1].getY())
+					|| left[2].isPointInside(left[2].getX(), left[2].getY())) {
 				try {
-	            	TimeUnit.SECONDS.sleep(2);
-	        	} catch (InterruptedException e) {
-	        		System.err.format("IOException: %s%n", e);
-	        	}
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					System.err.format("IOException: %s%n", e);
+				}
 			}
 		}
-	}	
-
+	}
 
 	public void keyPressed() {
 		if (key == 'w' && p1.getY() > 0) {
@@ -104,10 +104,19 @@ public class DrawingSurface extends PApplet {
 		if (keyCode == LEFT && p2.getX() > length / 2)
 			p2.move(-2, 0);
 
+	}
+
+	public void keyReleased() {
+
 		if (key == 'b') {
+<<<<<<< HEAD
 			//if (numLeftMines == 3) {
+=======
+			b.move(random.getX(), random.getY());
+
+			if (numLeftMines == 3) {
+>>>>>>> 5f6768b2b6d083639d255c2e7821777344b1772f
 				if (hasGameStarted) {
-					b.move(random.getX(), random.getY());
 				}
 				hasGameStarted = true;
 			//} else {
@@ -115,7 +124,7 @@ public class DrawingSurface extends PApplet {
 			//}
 		}
 	}
-	
+
 	public void mouseReleased() {
 		if (numLeftMines < 3) {
 			if (mouseButton == LEFT) {
@@ -124,6 +133,5 @@ public class DrawingSurface extends PApplet {
 			}
 		}
 	}
-	
-	
+
 }
