@@ -37,7 +37,7 @@ public class Shape {
 
 	public void act() {
 		move(x, y);
-
+// Change the x,y coordinates here
 		// If this is hitting the top or bottom; 
 		if (0 > x || x > windowLength || 0 > y || y > windowHeight) {
 			vX = -vX;
@@ -58,6 +58,7 @@ public class Shape {
 		x += vX;
 		y += vY;
 		System.out.println("move");
+		// Change the velocities here
 	}
 	
 
