@@ -15,14 +15,16 @@ public class Obstacle extends Shape {
 	public void draw(PApplet surface)
 	{
 		super.draw(surface);
-		surface.line((float)x,(float)y,(float)(x+(float)5*Math.random()),(float)(y+(float)5*Math.random()));
+		surface.line((float)x,(float)y,(float)(x+(float)10*Math.random()),(float)(y+(float)10*Math.random()));
+		System.out.println(x + " " + y);
 	}
 
 	@Override
 	public boolean isPointInside(double xInput, double yInput) {
-		// TODO Auto-generated method stub
-
-		return false;
+		boolean inside = false;
+		if (x < xInput && xInput < x + width && y < yInput && yInput < y + length)
+			inside = true;
+		return inside;
 	}
 
 }
