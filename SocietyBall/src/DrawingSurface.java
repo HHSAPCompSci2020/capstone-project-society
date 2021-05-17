@@ -45,7 +45,7 @@ public class DrawingSurface extends PApplet {
 		random = new Point();
 		random.setLocation((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
 		numLeftMines = 0;
-		numRightMines = 0 ;
+		numRightMines = 0;
 	}
 
 	public void draw() {
@@ -65,12 +65,14 @@ public class DrawingSurface extends PApplet {
 	
 		popStyle();
 		
-		if (left[0].isPointInside(left[0].getX(), left[0].getY()) || left[1].isPointInside(left[1].getX(), left[1].getY()) || left[2].isPointInside(left[2].getX(), left[2].getY())) {
-	        try {
-	            TimeUnit.SECONDS.sleep(2);
-	        } catch (InterruptedException e) {
-	            System.err.format("IOException: %s%n", e);
-	        }
+		if (hasGameStarted == true) {
+			if (left[0].isPointInside(left[0].getX(), left[0].getY()) || left[1].isPointInside(left[1].getX(), left[1].getY()) || left[2].isPointInside(left[2].getX(), left[2].getY())) {
+				try {
+	            	TimeUnit.SECONDS.sleep(2);
+	        	} catch (InterruptedException e) {
+	        		System.err.format("IOException: %s%n", e);
+	        	}
+			}
 		}
 	}	
 
@@ -100,17 +102,22 @@ public class DrawingSurface extends PApplet {
 			p2.move(-2, 0);
 
 		if (key == 'b') {
-			if (hasGameStarted) {
-				b.move(random.getX(), random.getY());
+			if (numLeftMines == 3) {
+				if (hasGameStarted) {
+					b.move(random.getX(), random.getY());
+				}
+				hasGameStarted = true;
+			} else {
+				System.out.println("You have not placed all the mines yet");
 			}
-			hasGameStarted = true;
 		}
 	}
 	
 	public void mouseReleased() {
-		if (numLeftMines < 2) {
+		if (numLeftMines < 3) {
 			if (mouseButton == LEFT) {
-				
+				left[numLeftMines] = new Mine((double) mouseX, (double) mouseY);
+				numLeftMines++;
 			}
 		}
 	}
