@@ -105,14 +105,14 @@ public class DrawingSurface extends PApplet {
 			p2.move(-2, 0);
 
 		if (key == 'b') {
-			if (numLeftMines == 3) {
+			//if (numLeftMines == 3) {
 				if (hasGameStarted) {
 					b.move(random.getX(), random.getY());
 				}
 				hasGameStarted = true;
-			} else {
-				System.out.println("You have not placed all the mines yet");
-			}
+			//} else {
+				//System.out.println("You have not placed all the mines yet");
+			//}
 		}
 	}
 	
