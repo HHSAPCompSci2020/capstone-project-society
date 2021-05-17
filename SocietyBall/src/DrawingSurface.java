@@ -20,6 +20,7 @@ public class DrawingSurface extends PApplet {
 	private Mine m;
 	private Paddle p1;
 	private Paddle p2;
+	private boolean hasGameStarted = false;
 	
 	public DrawingSurface() {
 		m = new Mine(20,100);
@@ -76,7 +77,10 @@ public class DrawingSurface extends PApplet {
 				p2.move(-2, 0);
 			
 			if (key == 'b') {
-				b.move((Math.random()-.5)*2, (Math.random()-.5)*2);
+				if (hasGameStarted) {
+					b.move((Math.random()-.5)*2, (Math.random()-.5)*2);
+				}
+				hasGameStarted = true;
 			}
 	}
 }
