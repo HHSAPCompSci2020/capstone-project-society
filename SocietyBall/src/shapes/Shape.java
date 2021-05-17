@@ -29,14 +29,18 @@ public class Shape {
 		strokeColor = Color.black;
 		fillColor = Color.white;
 		filled = false;
-		vX = 1;
-		vY = 1;
+		vX = 0;
+		vY = 0;
 		windowLength = 400;
 		windowHeight = 300;
 	}
 
+	// Call this inside of draw, always getting called
 	public void act() {
-		move(x, y);
+		x += vX;
+		y += vY;
+//		move(x, y);
+	
 // Change the x,y coordinates here
 		// If this is hitting the top or bottom; 
 		if (0 > x || x > windowLength || 0 > y || y > windowHeight) {
@@ -46,7 +50,7 @@ public class Shape {
 	}
 
 	/**
-	 * The shape takes a new coordinate point and moves there. Could be from
+	 * The shape takes a new velocity and then makes it the velocity of the shape. Could be from
 	 * mouse(for mines) or for user input with(wasd/arrow keys)
 	 * 
 	 * @param newX New X value assigned
@@ -55,9 +59,8 @@ public class Shape {
 	public void move(double newX, double newY) {
 		vX = newX;
 		vY = newY;
-		x += vX;
-		y += vY;
-		System.out.println("move");
+		
+//		System.out.println("move");
 		// Change the velocities here
 	}
 	
