@@ -2,6 +2,9 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+import java.util.concurrent.TimeUnit;
+import java.util.Date;
+
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 import shapes.Ball;
@@ -17,15 +20,21 @@ import shapes.Paddle;
 public class DrawingSurface extends PApplet {
 
 	private Ball b;
-	private Mine m;
+	private Mine mL1;
+	private Mine mL2;
+	private Mine mL3;
+	private Mine mR1;
+	private Mine mR2;
+	private Mine mR3;
 	private Paddle p1;
 	private Paddle p2;
 	private int height = 300;
 	private int length = 400;
 	private boolean hasGameStarted = false;
+	private int numLeftMines = 0;
+	private int numRightMines = 0;
 	
 	public DrawingSurface() {
-		m = new Mine(20,100);
 		b = new Ball(10,10);
 		p1 = new Paddle(50, 100);
 		p2 = new Paddle(350, 100);
@@ -39,7 +48,6 @@ public class DrawingSurface extends PApplet {
 		fill(0);
 
 		b.draw(this);
-		m.draw(this);	
 		p1.draw(this);
 		p2.draw(this);
 		
@@ -47,14 +55,21 @@ public class DrawingSurface extends PApplet {
 		
 		fill(0);
 		textSize(10);
-		text("press b to start ball moving",15,15);
+		text("The left side can place 3 mines with left click. The right side can place 3 mines with right click.",15,15);
 	
 		popStyle();
 		
-		
+		if (p1.isPointInside(mL1.getX(), mL1.getY()) || p1.isPointInside(mL2.getX(), mL2.getY()) || p1.isPointInside(mL3.getX(), mL3.getY())) {
+	        try {
+	            TimeUnit.SECONDS.sleep(2);
+	        } catch (InterruptedException e) {
+	            System.err.format("IOException: %s%n", e);
+	        }
+		}
 	}	
 	
 	public void keyPressed() {
+		// Paddle movements
 			if (key == 'w' && p1.getY() > 0) {
 				p1.move(0,-2);
 			} 
@@ -78,6 +93,7 @@ public class DrawingSurface extends PApplet {
 			if(keyCode == LEFT && p2.getX() > length/2)
 				p2.move(-2, 0);
 			
+		//Ball movements
 			if (key == 'b') {
 				if (hasGameStarted) {
 					b.move((Math.random()-.5)*2, (Math.random()-.5)*2);
@@ -85,4 +101,14 @@ public class DrawingSurface extends PApplet {
 				hasGameStarted = true;
 			}
 	}
+	
+	public void mouseReleased() {
+		if (numLeftMines < 2) {
+			if (mouseButton == LEFT) {
+				
+			}
+		}
+	}
+	
+	
 }

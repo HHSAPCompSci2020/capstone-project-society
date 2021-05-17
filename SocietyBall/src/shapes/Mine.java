@@ -3,7 +3,7 @@ package shapes;
 import processing.core.PApplet;
 
 /**
- * @author Richard Zhang
+ * @author Richard Zhang and Daniel Huber
  */
 public class Mine extends Shape {
 
