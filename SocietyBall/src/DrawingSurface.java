@@ -27,6 +27,8 @@ public class DrawingSurface extends PApplet {
 	private Mine mR1;
 	private Mine mR2;
 	private Mine mR3;
+	private Mine left[] = new Mine[3];
+	private Mine right[] = new Mine[3];
 	private Paddle p1;
 	private Paddle p2;
 	private int height = 300;
@@ -67,7 +69,7 @@ public class DrawingSurface extends PApplet {
 	
 		popStyle();
 		
-		if (p1.isPointInside(mL1.getX(), mL1.getY()) || p1.isPointInside(mL2.getX(), mL2.getY()) || p1.isPointInside(mL3.getX(), mL3.getY())) {
+		if (left[0].isPointInside(left[0].getX(), left[0].getY()) || left[1].isPointInside(left[1].getX(), left[1].getY()) || left[2].isPointInside(left[2].getX(), left[2].getY())) {
 	        try {
 	            TimeUnit.SECONDS.sleep(2);
 	        } catch (InterruptedException e) {
