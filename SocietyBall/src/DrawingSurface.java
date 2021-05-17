@@ -56,9 +56,9 @@ public class DrawingSurface extends PApplet {
 		b.draw(this);
 		p1.draw(this);
 		p2.draw(this);
-		b.act();
-		p1.act();
-		p2.act();
+//		b.act();
+//		p1.act();
+//		p2.act();
 
 		pushStyle();
 

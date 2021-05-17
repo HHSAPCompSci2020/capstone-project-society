@@ -20,8 +20,7 @@ public class Shape {
 	private boolean filled;
 	private int windowLength;
 	private int windowHeight;
-	
-	
+
 	public Shape(double x, double y) {
 		this.x = x;
 		this.y = y;
@@ -37,12 +36,11 @@ public class Shape {
 
 	// Call this inside of draw, always getting called
 	public void act() {
-		x += vX;
-		y += vY;
-//		move(x, y);
-	
+
+		move(x, y);
+
 // Change the x,y coordinates here
-		// If this is hitting the top or bottom; 
+		// If this is hitting the top or bottom;
 		if (0 > x || x > windowLength || 0 > y || y > windowHeight) {
 			vX = -vX;
 			vY = -vY;
@@ -50,8 +48,8 @@ public class Shape {
 	}
 
 	/**
-	 * The shape takes a new velocity and then makes it the velocity of the shape. Could be from
-	 * mouse(for mines) or for user input with(wasd/arrow keys)
+	 * The shape takes a new velocity and then makes it the velocity of the shape.
+	 * Could be from mouse(for mines) or for user input with(wasd/arrow keys)
 	 * 
 	 * @param newX New X value assigned
 	 * @param newY New Y value assigned
@@ -59,11 +57,12 @@ public class Shape {
 	public void move(double newX, double newY) {
 		vX = newX;
 		vY = newY;
-		
+		x += vX;
+		y += vY;
+
 //		System.out.println("move");
 		// Change the velocities here
 	}
-	
 
 	/**
 	 * Checks if the point is inside the shape. Will be used to check collisions
@@ -111,22 +110,25 @@ public class Shape {
 	public void setY(double y) {
 		this.y = y;
 	}
+
 	/**
 	 * Sets field vX to a new parameter.
 	 * 
 	 * @param vX new vX value
 	 */
-	public void setvX (double vX) {
+	public void setvX(double vX) {
 		this.vX = vX;
 	}
+
 	/**
 	 * Sets field vY to a new parameter.
 	 * 
 	 * @param vY new vY value
 	 */
-	public void setvY (double vY) {
+	public void setvY(double vY) {
 		this.vY = vY;
 	}
+
 	/**
 	 * Draws a new instance of a shape object.
 	 * 

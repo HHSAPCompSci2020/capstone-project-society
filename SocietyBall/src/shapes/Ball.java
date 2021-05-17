@@ -33,4 +33,13 @@ public class Ball extends Shape {
 		super.vY = vY;
 	}
 
+	public void act() {
+		x += vX;
+		y += vY;
+	}
+
+	public void move(double newX, double newY) {
+		vX = newX;
+		vY = newY;
+	}
 }
