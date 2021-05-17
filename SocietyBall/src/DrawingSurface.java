@@ -21,12 +21,6 @@ import shapes.Paddle;
 public class DrawingSurface extends PApplet {
 
 	private Ball b;
-	private Mine mL1;
-	private Mine mL2;
-	private Mine mL3;
-	private Mine mR1;
-	private Mine mR2;
-	private Mine mR3;
 	private Mine left[] = new Mine[3];
 	private Mine right[] = new Mine[3];
 	private Paddle p1;
@@ -50,12 +44,6 @@ public class DrawingSurface extends PApplet {
 		hasGameStarted = false;
 		random = new Point();
 		random.setLocation((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
-		mL1 = new Mine(100,100);
-		mL2 = new Mine(100, 150);
-		mL3 = new Mine(100, 200);
-		mR1 = new Mine(200, 100);
-		mR2 = new Mine(200, 150);
-		mR3 = new Mine(200, 200);
 		numLeftMines = 0;
 		numRightMines = 0 ;
 	}
