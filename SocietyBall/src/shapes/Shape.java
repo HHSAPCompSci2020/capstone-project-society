@@ -143,4 +143,10 @@ public class Shape {
 		surface.stroke(strokeColor.getRed(), strokeColor.getGreen(), strokeColor.getBlue());
 	}
 
+	public double getvX() {
+		return vX;
+	}
+	public double getvY() {
+		return vY;
+	}
 }

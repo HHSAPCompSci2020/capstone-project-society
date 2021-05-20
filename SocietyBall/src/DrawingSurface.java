@@ -91,27 +91,27 @@ public class DrawingSurface extends PApplet {
 
 	public void keyPressed() {
 		if (key == 'w' && p1.getY() > 0) {
-			p1.move(0, -2);
+			p1.move(0, -4);
 		}
 		if (key == 'd' && p1.getX() < length / 2) {
-			p1.move(2, 0);
+			p1.move(4, 0);
 		}
 		if (key == 'a' && p1.getX() > 0) {
-			p1.move(-2, 0);
+			p1.move(-4, 0);
 		}
 		if (key == 's' && p1.getY() < height) {
-			p1.move(0, 2);
+			p1.move(0, 4);
 		}
 
 		if (keyCode == UP && p2.getY() > 0) {
-			p2.move(0, -2);
+			p2.move(0, -4);
 		}
 		if (keyCode == DOWN && p2.getY() < height)
-			p2.move(0, 2);
+			p2.move(0, 4);
 		if (keyCode == RIGHT && p2.getX() < length)
-			p2.move(2, 0);
+			p2.move(4, 0);
 		if (keyCode == LEFT && p2.getX() > length / 2)
-			p2.move(-2, 0);
+			p2.move(-4, 0);
 
 	}
 

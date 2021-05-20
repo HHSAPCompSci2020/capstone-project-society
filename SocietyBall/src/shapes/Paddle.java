@@ -17,8 +17,8 @@ public class Paddle extends Shape {
 		super(x, y);
 		this.x = x;
 		this.y = y;
-		length = 20f;
-		width = 5f;
+		length = 40f;
+		width = 15f;
 	}
 
 	public boolean isPointInside(double xInput, double yInput) {

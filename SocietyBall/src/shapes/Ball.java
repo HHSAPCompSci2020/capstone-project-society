@@ -42,7 +42,7 @@ public class Ball extends Shape {
 		x += vX;
 		y += vY;
 		if (0 > x || x > 400) {
-			vX = -vX;
+//			vX = -vX;
 			vY = -vY;
 		}
 		if(0 > y || y > 300) {
