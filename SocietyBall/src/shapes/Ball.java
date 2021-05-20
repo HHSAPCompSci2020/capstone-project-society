@@ -45,7 +45,7 @@ public class Ball extends Shape {
 //			vX = -vX;
 			vY = -vY;
 		}
-		if(0 > y || y > 300) {
+		if(0 > y || y > 350) {
 			vY = -vY;
 		}
 			
@@ -55,4 +55,5 @@ public class Ball extends Shape {
 		vX = newX;
 		vY = newY;
 	}
+	
 }

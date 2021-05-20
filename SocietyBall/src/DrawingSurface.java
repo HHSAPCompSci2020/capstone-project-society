@@ -14,7 +14,7 @@ import shapes.Paddle;
 
 /**
  * 
- * @author Daniel Huber and Richard Zhang
+ * @author Daniel Huber and Richard Zhang and Ryan Tsai
  * 
  * 
  */
@@ -31,6 +31,8 @@ public class DrawingSurface extends PApplet {
 	private int numLeftMines;
 	private int numRightMines;
 	private Point random;
+	private int p1point;
+	private int p2point;
 
 	public DrawingSurface() {
 		
@@ -45,6 +47,8 @@ public class DrawingSurface extends PApplet {
 		random.setLocation((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
 		numLeftMines = 0;
 		numRightMines = 0;
+		p1point = 0;
+		p2point = 0;
 	}
 
 	public void draw() {
@@ -65,6 +69,7 @@ public class DrawingSurface extends PApplet {
 		textSize(10);
 		text("The left side can place 3 mines with left click. The right side can place 3 mines with right click.", 15,
 				15);
+		text(p1point + "  " + p2point, 200, 50);
 
 		popStyle();
 
@@ -87,6 +92,23 @@ public class DrawingSurface extends PApplet {
 		}
 		if(p2.isPointInside(b.getX(), b.getY()))
 			b.reverseVelocties();
+		
+		if(b.getX()>400)
+		{
+		p1point++;
+		b.setX(200);
+		b.setY(200);
+		b.move((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
+		}
+		
+		if(b.getX() < 0)
+		{
+		p2point++;
+		b.setX(200);
+		b.setY(200);
+		b.move((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
+		}
+		
 	}
 
 	public void keyPressed() {
@@ -119,7 +141,7 @@ public class DrawingSurface extends PApplet {
 
 		if (key == 'b') {
 			// if (numLeftMines == 3) {
-			b.move(random.getX(), random.getY());
+			b.move((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
 
 			if (numLeftMines == 3) {
 				if (hasGameStarted) {
