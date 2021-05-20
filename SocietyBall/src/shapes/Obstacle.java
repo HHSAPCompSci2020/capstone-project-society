@@ -25,8 +25,7 @@ public class Obstacle extends Shape {
 		surface.line((float)x,(float)y,(float)(x+(float)10*Math.random()),(float)(y+(float)10*Math.random()));
 		// System.out.println(x + " " + y);
 	}
-
-	@Override
+	
 	public boolean isPointInside(double xInput, double yInput) {
 		boolean inside = false;
 		if (x < xInput && xInput < x + width && y < yInput && yInput < y + length)
