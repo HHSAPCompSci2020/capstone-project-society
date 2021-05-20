@@ -2,6 +2,13 @@ package shapes;
 
 import processing.core.PApplet;
 
+/**
+ * 
+ * @author Daniel Huber and Ryan Tsai
+ * 
+ *
+ */
+
 public class Paddle extends Shape {
 
 	private float length, width;
