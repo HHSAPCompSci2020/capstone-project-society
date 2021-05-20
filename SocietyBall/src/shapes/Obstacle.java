@@ -2,6 +2,13 @@ package shapes;
 
 import processing.core.PApplet;
 
+/**
+ * 
+ * @author Ryan Tsai
+ * 
+ *
+ */
+
 public class Obstacle extends Shape {
 
 	public Obstacle(double x, double y) {
@@ -16,10 +23,9 @@ public class Obstacle extends Shape {
 	{
 		super.draw(surface);
 		surface.line((float)x,(float)y,(float)(x+(float)10*Math.random()),(float)(y+(float)10*Math.random()));
-		System.out.println(x + " " + y);
+		// System.out.println(x + " " + y);
 	}
-
-	@Override
+	
 	public boolean isPointInside(double xInput, double yInput) {
 		boolean inside = false;
 		if (x < xInput && xInput < x + width && y < yInput && yInput < y + length)
