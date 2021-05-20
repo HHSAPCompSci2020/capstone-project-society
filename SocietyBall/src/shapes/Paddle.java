@@ -16,8 +16,11 @@ public class Paddle extends Shape {
 
 	public boolean isPointInside(double xInput, double yInput) {
 		boolean inside = false;
-		if (x < xInput && xInput < x + width && y < yInput && yInput < y + length)
+		if (x < xInput && xInput < x + width && y < yInput && yInput < y + length) {
 			inside = true;
+		}
+		System.out.println(xInput + " " + yInput);
+
 		return inside;
 	}
 

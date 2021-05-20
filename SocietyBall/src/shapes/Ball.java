@@ -33,13 +33,22 @@ public class Ball extends Shape {
 		super.vY = vY;
 	}
 
+	public void reverseVelocties() {
+		super.vX = -super.vX;
+		super.vY = -super.vY;
+	}
+
 	public void act() {
 		x += vX;
 		y += vY;
-		if (0 > x || x > 400 || 0 > y || y > 300) {
+		if (0 > x || x > 400) {
 			vX = -vX;
 			vY = -vY;
 		}
+		if(0 > y || y > 300) {
+			vY = -vY;
+		}
+			
 	}
 
 	public void move(double newX, double newY) {

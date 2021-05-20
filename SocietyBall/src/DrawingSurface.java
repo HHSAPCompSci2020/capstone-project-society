@@ -33,12 +33,13 @@ public class DrawingSurface extends PApplet {
 	private Point random;
 
 	public DrawingSurface() {
-
-		b = new Ball(10, 10);
-		p1 = new Paddle(50, 100);
-		p2 = new Paddle(350, 100);
+		
+	
 		height = 300;
 		length = 400;
+		b = new Ball(height / 2, length /2 );
+		p1 = new Paddle(50, 100);
+		p2 = new Paddle(350, 100);
 		hasGameStarted = false;
 		random = new Point();
 		random.setLocation((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
@@ -67,6 +68,7 @@ public class DrawingSurface extends PApplet {
 
 		popStyle();
 
+		// never true rn
 		if (hasGameStarted == true) {
 			if (left[0].isPointInside(left[0].getX(), left[0].getY())
 					|| left[1].isPointInside(left[1].getX(), left[1].getY())
@@ -77,7 +79,14 @@ public class DrawingSurface extends PApplet {
 					System.err.format("IOException: %s%n", e);
 				}
 			}
+
 		}
+		if (p1.isPointInside(b.getX(), b.getY())) {
+			b.reverseVelocties();
+			System.out.println("Collision");
+		}
+		if(p2.isPointInside(b.getX(), b.getY()))
+			b.reverseVelocties();
 	}
 
 	public void keyPressed() {
@@ -109,16 +118,16 @@ public class DrawingSurface extends PApplet {
 	public void keyReleased() {
 
 		if (key == 'b') {
-			//if (numLeftMines == 3) {
+			// if (numLeftMines == 3) {
 			b.move(random.getX(), random.getY());
 
 			if (numLeftMines == 3) {
 				if (hasGameStarted) {
 				}
 				hasGameStarted = true;
-			//} else {
-				//System.out.println("You have not placed all the mines yet");
-			//}
+				// } else {
+				// System.out.println("You have not placed all the mines yet");
+				// }
 			}
 		}
 	}
