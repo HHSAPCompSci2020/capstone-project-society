@@ -30,21 +30,17 @@ public class DrawingSurface extends PApplet {
 	private boolean hasGameStarted;
 	private int numLeftMines;
 	private int numRightMines;
-	private Point random;
 	private int p1point;
 	private int p2point;
 
 	public DrawingSurface() {
-		
-	
+
 		height = 300;
 		length = 400;
-		b = new Ball(height / 2, length /2 );
+		b = new Ball(height / 2, length / 2);
 		p1 = new Paddle(50, 100);
 		p2 = new Paddle(350, 100);
 		hasGameStarted = false;
-		random = new Point();
-		random.setLocation((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
 		numLeftMines = 0;
 		numRightMines = 0;
 		p1point = 0;
@@ -56,12 +52,15 @@ public class DrawingSurface extends PApplet {
 		textSize(12);
 		fill(0);
 
+		this.color(255, 0, 0);
 		b.draw(this);
+		this.color(0, 255, 0);
+
 		p1.draw(this);
 		p2.draw(this);
 		b.act();
-//		p1.act();
-//		p2.act();
+		p1.act();
+		p2.act();
 
 		pushStyle();
 
@@ -86,29 +85,35 @@ public class DrawingSurface extends PApplet {
 			}
 
 		}
-		if (p1.isPointInside(b.getX(), b.getY())) {
-			b.reverseVelocties();
-			System.out.println("Collision");
+		for (int x = 0; x < b.getCorners().size(); x++) {
+//			if (p1.isPointInside(b.getX(), b.getY())) {
+			if (p1.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
+				b.reverseVelocties();
+				System.out.println("Collision");
+			}
+			if (p2.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
+//			b.reverseVelocties();
+				// How do we want to test this type of interaction.
+				b.setvX(b.getvX() + p2.getvX());
+				b.setvY(b.getvY() + p2.getvY());
+			}
 		}
-		if(p2.isPointInside(b.getX(), b.getY()))
-			b.reverseVelocties();
-		
-		if(b.getX()>400)
-		{
-		p1point++;
-		b.setX(200);
-		b.setY(200);
-		b.move((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
+
+		// Checks if out of bounds/Score keeping
+		if (b.getX() > 400) {
+			p1point++;
+			b.setX(200);
+			b.setY(200);
+			b.move((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
 		}
-		
-		if(b.getX() < 0)
-		{
-		p2point++;
-		b.setX(200);
-		b.setY(200);
-		b.move((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
+
+		if (b.getX() < 0) {
+			p2point++;
+			b.setX(200);
+			b.setY(200);
+			b.move((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
 		}
-		
+
 	}
 
 	public void keyPressed() {
@@ -141,7 +146,7 @@ public class DrawingSurface extends PApplet {
 
 		if (key == 'b') {
 			// if (numLeftMines == 3) {
-			b.move((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
+			b.move((Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5);
 
 			if (numLeftMines == 3) {
 				if (hasGameStarted) {

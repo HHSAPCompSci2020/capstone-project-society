@@ -1,5 +1,9 @@
 package shapes;
 
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import processing.core.PApplet;
 
 public class Ball extends Shape {
@@ -45,15 +49,25 @@ public class Ball extends Shape {
 //			vX = -vX;
 			vY = -vY;
 		}
-		if(0 > y || y > 350) {
+		if (0 > y || y > 350) {
 			vY = -vY;
 		}
-			
+
 	}
 
 	public void move(double newX, double newY) {
 		vX = newX;
 		vY = newY;
 	}
-	
+
+	public ArrayList<Point> getCorners() {
+		ArrayList<Point> corners = new ArrayList<Point>(4);
+		corners.add(new Point((int) x, (int) (y + extent)));
+		corners.add(new Point((int) x, (int) (y - extent)));
+		corners.add(new Point((int) (x - extent), (int) y));
+		corners.add(new Point((int) (x + extent), (int) y));
+
+		return corners;
+
+	}
 }

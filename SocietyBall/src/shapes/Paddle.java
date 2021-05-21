@@ -26,7 +26,7 @@ public class Paddle extends Shape {
 		if (x < xInput && xInput < x + width && y < yInput && yInput < y + length) {
 			inside = true;
 		}
-		System.out.println(xInput + " " + yInput);
+//		System.out.println(xInput + " " + yInput);
 
 		return inside;
 	}
@@ -43,14 +43,10 @@ public class Paddle extends Shape {
 			vX = 2 * vX;
 			vY = 2 * vY;
 			sprinted = true;
-		}
-		else if(sprinted) {
+		} else if (sprinted) {
 			vX = 0.5 * vX;
 			vY = 0.5 * vY;
 		}
-		
-		
-			
 
 	}
 

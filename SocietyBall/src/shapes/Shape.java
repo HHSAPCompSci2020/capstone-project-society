@@ -36,8 +36,17 @@ public class Shape {
 
 	// Call this inside of draw, always getting called
 	public void act() {
+//		x += vX;
+//		y += vY;
+//		if (0 > x || x > 400) {
+////			vX = -vX;
+//			vY = -vY;
+//		}
+//		if(0 > y || y > 300) {
+//			vY = -vY;
+//		}
 
-		move(x, y);
+//		move(x, y);
 
 // Change the x,y coordinates here
 		// If this is hitting the top or bottom;
@@ -60,8 +69,10 @@ public class Shape {
 		x += vX;
 		y += vY;
 
-//		System.out.println("move");
-		// Change the velocities here
+		System.out.println(newX + " " + newY);
+//		// Change the velocities here
+//		vX = newX;
+//		vY = newY;
 	}
 
 	/**
@@ -146,6 +157,7 @@ public class Shape {
 	public double getvX() {
 		return vX;
 	}
+
 	public double getvY() {
 		return vY;
 	}
