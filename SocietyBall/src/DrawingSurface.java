@@ -32,6 +32,7 @@ public class DrawingSurface extends PApplet {
 	private int numRightMines;
 	private int p1point;
 	private int p2point;
+	private int velocity = 10;
 
 	public DrawingSurface() {
 
@@ -114,42 +115,40 @@ public class DrawingSurface extends PApplet {
 			b.move((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
 		}
 	
-		if (numLeftMines == 3) {
+		if (numLeftMines == 3 && numRightMines == 3) {
 			left[0].draw(this);
 			left[1].draw(this);
 			left[2].draw(this);
-		}
-		
-		if (numRightMines == 3) {
 			right[0].draw(this);
 			right[1].draw(this);
 			right[2].draw(this);
 		}
+		
 	}
 
 	public void keyPressed() {
 		if (key == 'w' && p1.getY() > 0) {
-			p1.move(0, -4);
+			p1.move(0, -velocity);
 		}
 		if (key == 'd' && p1.getX() < length / 2) {
-			p1.move(4, 0);
+			p1.move(velocity, 0);
 		}
 		if (key == 'a' && p1.getX() > 0) {
-			p1.move(-4, 0);
+			p1.move(-velocity, 0);
 		}
 		if (key == 's' && p1.getY() < height) {
-			p1.move(0, 4);
+			p1.move(0, velocity);
 		}
 
 		if (keyCode == UP && p2.getY() > 0) {
-			p2.move(0, -4);
+			p2.move(0, -velocity);
 		}
 		if (keyCode == DOWN && p2.getY() < height)
-			p2.move(0, 4);
+			p2.move(0, velocity);
 		if (keyCode == RIGHT && p2.getX() < length)
-			p2.move(4, 0);
+			p2.move(velocity, 0);
 		if (keyCode == LEFT && p2.getX() > length / 2)
-			p2.move(-4, 0);
+			p2.move(-velocity, 0);
 
 	}
 
