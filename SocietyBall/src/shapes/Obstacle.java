@@ -18,7 +18,7 @@ public class Obstacle extends Shape {
 	 * @param x Pre-coded X-coordinate
 	 * @param y Pre-coded Y-coordinate
 	 */
-	public Obstacle(double x, double y) {
+	public Obstacle(int x, int y) {
 		super(x, y);
 		this.x = x;
 		this.y = y;
@@ -29,7 +29,7 @@ public class Obstacle extends Shape {
 	public void draw(PApplet surface)
 	{
 		super.draw(surface);
-		surface.line((float)x,(float)y,(float)(x+(float)10*Math.random()),(float)(y+(float)10*Math.random()));
+		surface.rect((float)x,(float)y,(float)(25),(float)(25));
 		// System.out.println(x + " " + y);
 	}
 	

@@ -12,6 +12,7 @@ import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 import shapes.Ball;
 import shapes.Mine;
+import shapes.Obstacle;
 import shapes.Paddle;
 
 
@@ -38,9 +39,11 @@ public class DrawingSurface extends PApplet {
 	private int velocity = 2;
     private Timer timer;
     boolean up_p1, down_p1, left_p1, right_p1, up_p2, down_p2, left_p2, right_p2;
+    private Obstacle o1;
 
 	public DrawingSurface() {
-
+		int x = (int)(Math.random()*400);
+		int y = (int)(Math.random()*400);
 		height = 300;
 		length = 400;
 		b = new Ball(height / 2, length / 2);
@@ -51,6 +54,7 @@ public class DrawingSurface extends PApplet {
 		p1point = 0;
 		p2point = 0;
 		timer = new Timer();
+		o1 = new Obstacle(x,y);
 	}
 
 	public void draw() {
@@ -67,6 +71,7 @@ public class DrawingSurface extends PApplet {
 		b.act();
 		p1.act();
 		p2.act();
+		o1.draw(this);
 
 		pushStyle();
 
@@ -90,7 +95,12 @@ public class DrawingSurface extends PApplet {
 				//b.setvX(b.getvX() + p2.getvX());
 				//b.setvY(b.getvY() + p2.getvY());
 			}
+			if(o1.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY()))
+					{
+				b.reverseVelocties();
+					}
 		}
+		
 
 		// Checks if out of bounds/Score keeping
 		if (b.getX() > 400) {
