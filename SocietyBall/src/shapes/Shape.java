@@ -154,10 +154,20 @@ public class Shape {
 		surface.stroke(strokeColor.getRed(), strokeColor.getGreen(), strokeColor.getBlue());
 	}
 
+	/**
+	 * Outputs field vX
+	 * 
+	 * @return vX x Velocity of shape
+	 */
 	public double getvX() {
 		return vX;
 	}
 
+	/**
+	 * Outputs field vY
+	 * 
+	 * @return vY  y-Velocity of shape
+	 */
 	public double getvY() {
 		return vY;
 	}

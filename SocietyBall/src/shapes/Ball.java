@@ -10,6 +10,12 @@ public class Ball extends Shape {
 
 	private final float extent;
 
+	/**
+	 * Creates a ball at points x, y in the drawing surface.
+	 * 
+	 * @param x X-coordinate 
+	 * @param y Y-coordinate 
+	 */
 	public Ball(double x, double y) {
 		super(x, y);
 		extent = 20f;
@@ -32,11 +38,20 @@ public class Ball extends Shape {
 		surface.circle((float) x, (float) y, extent);
 	}
 
+	/**
+	 * Sets the velocities of the ball to new values
+	 * @param vX new x-Velocity
+	 * @param vY new y-Velocity
+	 */
 	public void setVelocities(double vX, double vY) {
 		super.vX = vX;
 		super.vY = vY;
 	}
 
+	/**
+	 * Reverses the x and y velocity of the ball
+	 * 
+	 */
 	public void reverseVelocties() {
 		super.vX = -super.vX;
 		super.vY = -super.vY;
@@ -60,12 +75,17 @@ public class Ball extends Shape {
 		vY = newY;
 	}
 
+	/**
+	 * Gets an ArrayList of all the corners of the ball.
+	 * 
+	 * @return corners All four corners of the ball in Point
+	 */
 	public ArrayList<Point> getCorners() {
 		ArrayList<Point> corners = new ArrayList<Point>(4);
-		corners.add(new Point((int) x, (int) (y + extent)));
-		corners.add(new Point((int) x, (int) (y - extent)));
-		corners.add(new Point((int) (x - extent), (int) y));
-		corners.add(new Point((int) (x + extent), (int) y));
+		corners.add(new Point((int) x, (int) (y + extent / 2)));
+		corners.add(new Point((int) x, (int) (y - extent / 2)));
+		corners.add(new Point((int) (x - extent / 2), (int) y));
+		corners.add(new Point((int) (x + extent / 2), (int) y));
 
 		return corners;
 

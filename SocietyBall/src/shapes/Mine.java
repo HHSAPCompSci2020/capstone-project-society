@@ -9,7 +9,7 @@ public class Mine extends Shape {
 
 	private final float extent;
 
-	/***
+	/**
 	 * Creates a mine at points x, y in the drawing surface.
 	 * 
 	 * @param x X-coordinate provided by mouse click

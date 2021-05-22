@@ -11,6 +11,13 @@ import processing.core.PApplet;
 
 public class Obstacle extends Shape {
 
+	
+	/**
+	 * Creates a mine at points x, y in the drawing surface.
+	 * 
+	 * @param x Pre-coded X-coordinate
+	 * @param y Pre-coded Y-coordinate
+	 */
 	public Obstacle(double x, double y) {
 		super(x, y);
 		this.x = x;
