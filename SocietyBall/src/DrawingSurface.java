@@ -66,7 +66,7 @@ public class DrawingSurface extends PApplet {
 
 		fill(0);
 		textSize(10);
-		text("The left side can place 3 mines with left click. The right side can place 3 mines with right click.", 15,
+		text("The left side can place 3 mines with left click. The right side can place 3 mines with right click. Once you placed the mines, press 'B' on your keyboard to start.", 15,
 				15);
 		text(p1point + "  " + p2point, 200, 50);
 
@@ -113,7 +113,18 @@ public class DrawingSurface extends PApplet {
 			b.setY(200);
 			b.move((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
 		}
-
+	
+		if (numLeftMines == 3) {
+			left[0].draw(this);
+			left[1].draw(this);
+			left[2].draw(this);
+		}
+		
+		if (numRightMines == 3) {
+			right[0].draw(this);
+			right[1].draw(this);
+			right[2].draw(this);
+		}
 	}
 
 	public void keyPressed() {
@@ -143,19 +154,8 @@ public class DrawingSurface extends PApplet {
 	}
 
 	public void keyReleased() {
-
 		if (key == 'b') {
-			// if (numLeftMines == 3) {
 			b.move((Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5);
-
-			if (numLeftMines == 3) {
-				if (hasGameStarted) {
-				}
-				hasGameStarted = true;
-				// } else {
-				// System.out.println("You have not placed all the mines yet");
-				// }
-			}
 		}
 	}
 
@@ -164,6 +164,12 @@ public class DrawingSurface extends PApplet {
 			if (mouseButton == LEFT) {
 				left[numLeftMines] = new Mine((double) mouseX, (double) mouseY);
 				numLeftMines++;
+			}
+		}
+		if (numRightMines < 3) {
+			if (mouseButton == RIGHT) {
+				right[numRightMines] = new Mine((double) mouseX, (double) mouseY);
+				numRightMines++;
 			}
 		}
 	}
