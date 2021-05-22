@@ -35,8 +35,9 @@ public class DrawingSurface extends PApplet {
 	private int numRightMines;
 	private int p1point;
 	private int p2point;
-	private int velocity = 10;
+	private int velocity = 2;
     private Timer timer;
+    boolean up_p1, down_p1, left_p1, right_p1, up_p2, down_p2, left_p2, right_p2;
 
 	public DrawingSurface() {
 
@@ -84,10 +85,10 @@ public class DrawingSurface extends PApplet {
 				System.out.println("Collision");
 			}
 			if (p2.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
-//			b.reverseVelocties();
+				b.reverseVelocties();
 				// How do we want to test this type of interaction.
-				b.setvX(b.getvX() + p2.getvX());
-				b.setvY(b.getvY() + p2.getvY());
+				//b.setvX(b.getvX() + p2.getvX());
+				//b.setvY(b.getvY() + p2.getvY());
 			}
 		}
 
@@ -119,52 +120,70 @@ public class DrawingSurface extends PApplet {
 			if (p1.isPointInside(left[0].getX(), left[0].getY())
 					|| p1.isPointInside(left[1].getX(), left[1].getY())
 					|| p1.isPointInside(left[2].getX(), left[2].getY())) {
-				//try {
-					long t= System.currentTimeMillis();
-					long end = t+2000;
-					velocity = 0;
-					if (System.currentTimeMillis() > end) {
-						velocity = 10;
-					}
-				//} catch (InterruptedException e) {
-				//	System.err.format("IOException: %s%n", e);
-				//}
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					System.err.format("IOException: %s%n", e);
+				}
 			}
 
 		}
 		
-	}
-
-	public void keyPressed() {
-		if (key == 'w' && p1.getY() > 0) {
+		
+		//left paddle movement
+		if (up_p1 && p1.getY() > 0) {
 			p1.move(0, -velocity);
 		}
-		if (key == 'd' && p1.getX() < length / 2) {
+		if (right_p1 && p1.getX() < length / 2) {
 			p1.move(velocity, 0);
 		}
-		if (key == 'a' && p1.getX() > 0) {
+		if (left_p1 && p1.getX() > 0) {
 			p1.move(-velocity, 0);
 		}
-		if (key == 's' && p1.getY() < height) {
+		if (down_p1 && p1.getY() < height) {
 			p1.move(0, velocity);
 		}
 
-		if (keyCode == UP && p2.getY() > 0) {
+		//right paddle movement
+		if (up_p2 && p2.getY() > 0) {
 			p2.move(0, -velocity);
 		}
-		if (keyCode == DOWN && p2.getY() < height)
-			p2.move(0, velocity);
-		if (keyCode == RIGHT && p2.getX() < length)
+		if (right_p2 && p2.getX() < length) {
 			p2.move(velocity, 0);
-		if (keyCode == LEFT && p2.getX() > length / 2)
+		}	
+		if (left_p2 && p2.getX() > length / 2) {
 			p2.move(-velocity, 0);
-
+		}
+		if (down_p2 && p2.getY() < height) {
+			p2.move(0, velocity);
+		}	
 	}
 
+	public void keyPressed() {
+		if (key == 'w') up_p1 = true;
+		if (key == 'd') right_p1 = true;
+		if (key == 'a') left_p1 = true;
+		if (key == 's') down_p1 = true;
+		if (keyCode == UP) up_p2 = true;
+		if (keyCode == RIGHT) right_p2 = true;
+		if (keyCode == LEFT) left_p2 = true;
+		if (keyCode == DOWN) down_p2 = true;
+	}
+
+	
+	
 	public void keyReleased() {
 		if (key == 'b') {
 			b.move((Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5);
 		}
+		if (key == 'w') up_p1 = false;
+		if (key == 'd') right_p1 = false;
+		if (key == 'a') left_p1 = false;
+		if (key == 's') down_p1 = false;
+		if (keyCode == UP) up_p2 = false;
+		if (keyCode == RIGHT) right_p2 = false;
+		if (keyCode == LEFT) left_p2 = false;
+		if (keyCode == DOWN) down_p2 = false;
 	}
 
 	public void mouseReleased() {
