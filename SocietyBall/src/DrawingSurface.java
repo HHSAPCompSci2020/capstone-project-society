@@ -87,7 +87,7 @@ public class DrawingSurface extends PApplet {
 //			if (p1.isPointInside(b.getX(), b.getY())) {
 			if (p1.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
 				b.reverseVelocties();
-				System.out.println("Collision");
+				
 			}
 			if (p2.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
 				b.reverseVelocties();
@@ -98,6 +98,7 @@ public class DrawingSurface extends PApplet {
 			if(o1.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY()))
 					{
 				b.reverseVelocties();
+				System.out.println("Collision");
 					}
 		}
 		

@@ -35,7 +35,7 @@ public class Obstacle extends Shape {
 	
 	public boolean isPointInside(double xInput, double yInput) {
 		boolean inside = false;
-		if (x < xInput && xInput < x + width && y < yInput && yInput < y + length)
+		if (x < xInput && xInput < x + 25 && y < yInput && yInput < y + 25)
 			inside = true;
 		return inside;
 	}
