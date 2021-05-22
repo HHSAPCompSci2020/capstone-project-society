@@ -5,12 +5,16 @@ import javax.swing.JFrame;
 
 import java.util.concurrent.TimeUnit;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 import shapes.Ball;
 import shapes.Mine;
 import shapes.Paddle;
+
+
 
 /**
  * 
@@ -27,12 +31,12 @@ public class DrawingSurface extends PApplet {
 	private Paddle p2;
 	private int height;
 	private int length;
-	private boolean hasGameStarted;
 	private int numLeftMines;
 	private int numRightMines;
 	private int p1point;
 	private int p2point;
 	private int velocity = 10;
+    private Timer timer;
 
 	public DrawingSurface() {
 
@@ -41,11 +45,11 @@ public class DrawingSurface extends PApplet {
 		b = new Ball(height / 2, length / 2);
 		p1 = new Paddle(50, 100);
 		p2 = new Paddle(350, 100);
-		hasGameStarted = false;
 		numLeftMines = 0;
 		numRightMines = 0;
 		p1point = 0;
 		p2point = 0;
+		timer = new Timer();
 	}
 
 	public void draw() {
@@ -73,10 +77,6 @@ public class DrawingSurface extends PApplet {
 
 		popStyle();
 
-		// never true rn
-		if (hasGameStarted == true) {
-
-		}
 		for (int x = 0; x < b.getCorners().size(); x++) {
 //			if (p1.isPointInside(b.getX(), b.getY())) {
 			if (p1.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
@@ -107,6 +107,7 @@ public class DrawingSurface extends PApplet {
 		}
 	
 		if (numLeftMines == 3 && numRightMines == 3) {
+			//draws the mines
 			left[0].draw(this);
 			left[1].draw(this);
 			left[2].draw(this);
@@ -114,17 +115,21 @@ public class DrawingSurface extends PApplet {
 			right[1].draw(this);
 			right[2].draw(this);
 			
-			//produces lag:
+			//checks whether paddles touch mines
 			if (p1.isPointInside(left[0].getX(), left[0].getY())
 					|| p1.isPointInside(left[1].getX(), left[1].getY())
 					|| p1.isPointInside(left[2].getX(), left[2].getY())) {
-				try {
-					TimeUnit.SECONDS.sleep(2);
-				} catch (InterruptedException e) {
-					System.err.format("IOException: %s%n", e);
-				}
+				//try {
+					long t= System.currentTimeMillis();
+					long end = t+2000;
+					velocity = 0;
+					if (System.currentTimeMillis() > end) {
+						velocity = 10;
+					}
+				//} catch (InterruptedException e) {
+				//	System.err.format("IOException: %s%n", e);
+				//}
 			}
-			//
 
 		}
 		
