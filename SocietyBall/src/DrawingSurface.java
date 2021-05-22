@@ -75,15 +75,6 @@ public class DrawingSurface extends PApplet {
 
 		// never true rn
 		if (hasGameStarted == true) {
-			if (left[0].isPointInside(left[0].getX(), left[0].getY())
-					|| left[1].isPointInside(left[1].getX(), left[1].getY())
-					|| left[2].isPointInside(left[2].getX(), left[2].getY())) {
-				try {
-					TimeUnit.SECONDS.sleep(2);
-				} catch (InterruptedException e) {
-					System.err.format("IOException: %s%n", e);
-				}
-			}
 
 		}
 		for (int x = 0; x < b.getCorners().size(); x++) {
@@ -122,6 +113,19 @@ public class DrawingSurface extends PApplet {
 			right[0].draw(this);
 			right[1].draw(this);
 			right[2].draw(this);
+			
+			//produces lag:
+			if (p1.isPointInside(left[0].getX(), left[0].getY())
+					|| p1.isPointInside(left[1].getX(), left[1].getY())
+					|| p1.isPointInside(left[2].getX(), left[2].getY())) {
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					System.err.format("IOException: %s%n", e);
+				}
+			}
+			//
+
 		}
 		
 	}
