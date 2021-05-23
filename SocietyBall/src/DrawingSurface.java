@@ -125,6 +125,14 @@ public class DrawingSurface extends PApplet {
 			b.move((Math.random() + 0.5) * -2, (Math.random() - 0.5) * 2);
 		}
 
+		// victory condition
+		if (p1point == 10) {
+			victory(true);
+		}
+		if (p2point == 10) {
+			victory(false);
+		}
+		
 		// deals with mines
 		if (numLeftMines == 3 && numRightMines == 3) {
 			// draws the mines
@@ -172,6 +180,8 @@ public class DrawingSurface extends PApplet {
 
 		}
 
+		
+		
 		// left paddle movement
 		if (!p1.isFrozen()) {
 			if (up_p1 && p1.getY() > 0) {
@@ -277,6 +287,25 @@ public class DrawingSurface extends PApplet {
 				right[numRightMines] = new Mine((double) mouseX, (double) mouseY);
 				numRightMines++;
 			}
+		}
+	}
+	
+	public void victory(boolean p1winner) {
+		clear();
+		fill(0);
+		textSize(30);
+		pushStyle();
+		if (p1winner) {
+			text("Victory for Player 1!", 15, height-20);
+		} else {
+			text("Victory for Player 2!", 15, height-20);
+		}
+		text(p1point + "  " + p2point, 100, 150);
+		popStyle();
+		try {
+			Thread.sleep(99999999);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 
