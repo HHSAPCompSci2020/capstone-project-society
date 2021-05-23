@@ -42,7 +42,7 @@ public class DrawingSurface extends PApplet {
 	boolean sprint_p1, sprint_p2;
 
 	public DrawingSurface() {
-		int x = (int) (Math.random() * 200);
+		int x = (int) (Math.random() * 150);
 		int y = (int) (Math.random() * 400);
 		height = 300;
 		length = 400;
@@ -55,7 +55,7 @@ public class DrawingSurface extends PApplet {
 		p2point = 0;
 		timer = new Timer();
 		o1 = new Obstacle(x, y);
-		o2 = new Obstacle((int)(Math.random()*200+200),(int)Math.random()*200);
+		o2 = new Obstacle((int)(Math.random()*150+250),(int)Math.random()*200);
 	}
 
 	public void draw() {
