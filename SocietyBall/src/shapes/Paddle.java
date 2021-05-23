@@ -66,20 +66,21 @@ public class Paddle extends Shape {
 	 * Doubles the velocity of the paddle if sprint is called and sprinting is true.
 	 * @param sprinting if the paddle is currently sprinting
 	 */
-	public void sprint(boolean sprinting) {
-		boolean sprinted = false;
-		System.out.println("Spriting");
-		vX = 2 * vX;
-		vY = 2 * vY;
-		if (sprinting) {
+//	public void sprint(boolean sprinting) {
+//		boolean sprinted = false;
+//		System.out.println("Spriting");
+//		vX = 2 * vX;
+//		vY = 2 * vY;
+//		if (sprinting) {
+//		
+////			sprinted = true;
+//		} else if (sprinted) {
+//			vX = 0.5 * vX;
+//			vY = 0.5 * vY;
+//		}
 		
-//			sprinted = true;
-		} else if (sprinted) {
-			vX = 0.5 * vX;
-			vY = 0.5 * vY;
-		}
 
-	}
+//	}
 	public ArrayList<Point> getCorners() {
 		ArrayList<Point> corners = new ArrayList<Point>(4);
 		corners.add(new Point((int)x, (int)(y)));

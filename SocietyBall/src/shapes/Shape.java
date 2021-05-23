@@ -69,7 +69,6 @@ public class Shape {
 		x += vX;
 		y += vY;
 
-		System.out.println(newX + " " + newY);
 //		// Change the velocities here
 //		vX = newX;
 //		vY = newY;

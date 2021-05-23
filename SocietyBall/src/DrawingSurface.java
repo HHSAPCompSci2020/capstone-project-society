@@ -55,7 +55,7 @@ public class DrawingSurface extends PApplet {
 		p1point = 0;
 		p2point = 0;
 		o1 = new Obstacle(x, y);
-		o2 = new Obstacle((int)(Math.random()*150+250),(int)Math.random()*200);
+		o2 = new Obstacle((int) (Math.random() * 150 + 250), (int) Math.random() * 200);
 	}
 
 	public void draw() {
@@ -68,9 +68,8 @@ public class DrawingSurface extends PApplet {
 		this.color(0, 255, 0);
 
 		stroke(150);
-		this.line(length/2, 0, length/2, height+100);
-		
-		
+		this.line(length / 2, 0, length / 2, height + 100);
+
 		p1.draw(this);
 		p2.draw(this);
 		b.act();
@@ -84,8 +83,8 @@ public class DrawingSurface extends PApplet {
 		fill(0);
 		textSize(10);
 		text("The left side can place 3 mines with left click. \nThe right side can place 3 mines with right click. \nOnce you placed the mines, press 'B' on your keyboard to start.",
-				15, height-20);
-		text(p1point + "   " + p2point, length/2-9, 50);
+				15, height - 20);
+		text(p1point + "   " + p2point, length / 2 - 9, 50);
 
 		popStyle();
 
@@ -108,42 +107,36 @@ public class DrawingSurface extends PApplet {
 			if (o1.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
 				b.reverseVelocties();
 			}
-			
-			if(o1.isPointInside(p1.getCorners().get(x).getX(), p1.getCorners().get(x).getY()))
-			{
+
+			if (o1.isPointInside(p1.getCorners().get(x).getX(), p1.getCorners().get(x).getY())) {
 				velocity = 0.3;
-			}
-			else 
+			} else if (!sprint_p1)
 				velocity = 2;
-			
-			
+
 			if (o2.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
 				b.reverseVelocties();
 			}
-			
-			
-			if(o2.isPointInside(p2.getCorners().get(x).getX(), p2.getCorners().get(x).getY()))
-			{
+
+			if (o2.isPointInside(p2.getCorners().get(x).getX(), p2.getCorners().get(x).getY())) {
 				velocity2 = 0.3;
-			}
-			else 
+			} else if (!sprint_p2)
 				velocity2 = 2;
 		}
 
 		// Checks if out of bounds/Score keeping
 		if (b.getX() > 400 && !gameOver) {
 			p1point++;
-			b.resetPosition(length/2,height/2);
-			p1.resetPosition(50, height/2);
-			p2.resetPosition(length-50-p2.width, height/2);
+			b.resetPosition(length / 2, height / 2);
+			p1.resetPosition(50, height / 2);
+			p2.resetPosition(length - 50 - p2.width, height / 2);
 			b.move((Math.random() + 0.5) * 2, (Math.random() - 0.5) * 2);
 		}
 
 		if (b.getX() < 0 && !gameOver) {
 			p2point++;
-			b.resetPosition(length/2,height/2);
-			p1.resetPosition(50, height/2);
-			p2.resetPosition(length-50-p2.width, height/2);
+			b.resetPosition(length / 2, height / 2);
+			p1.resetPosition(50, height / 2);
+			p2.resetPosition(length - 50 - p2.width, height / 2);
 			b.move((Math.random() + 0.5) * -2, (Math.random() - 0.5) * 2);
 		}
 
@@ -154,14 +147,14 @@ public class DrawingSurface extends PApplet {
 		if (p2point == 10) {
 			victory(false);
 		}
-		
+
 		// deals with mines
 		if (numLeftMines == 3 && numRightMines == 3) {
 			// draws the mines
 			left[0].draw(this);
 			left[1].draw(this);
 			left[2].draw(this);
-			
+
 			stroke(104, 102, 0);
 			right[0].draw(this);
 			right[1].draw(this);
@@ -202,14 +195,13 @@ public class DrawingSurface extends PApplet {
 
 		}
 
-		
-		
 		// left paddle movement
 		if (!p1.isFrozen()) {
+
 			if (up_p1 && p1.getY() > 0) {
 				p1.move(0, -velocity);
 			}
-			if (right_p1 && p1.getX() < length / 2-15) {
+			if (right_p1 && p1.getX() < length / 2 - 15) {
 				p1.move(velocity, 0);
 			}
 			if (left_p1 && p1.getX() > 0) {
@@ -218,9 +210,10 @@ public class DrawingSurface extends PApplet {
 			if (down_p1 && p1.getY() < height) {
 				p1.move(0, velocity);
 			}
-			if (sprint_p1) {
-				p1.sprint(true);
-			}
+//			if (sprint_p1) {
+//				velocity = 5;
+//				System.out.println("sprint");
+//			}
 
 		}
 
@@ -238,9 +231,9 @@ public class DrawingSurface extends PApplet {
 			if (down_p2 && p2.getY() < height) {
 				p2.move(0, velocity2);
 			}
-			if (sprint_p2) {
-				p2.sprint(true);
-			}
+//			if (sprint_p2) {
+//				velocity2 = 5;
+//			}
 		}
 
 	}
@@ -263,14 +256,20 @@ public class DrawingSurface extends PApplet {
 		if (keyCode == DOWN)
 			down_p2 = true;
 		// CNTRL for p1, SHIFt for p2
-		if (keyCode == CONTROL)
+//		if (keyCode == CONTROL) {
+		if (key == 'q') {
 			sprint_p1 = true;
-		if (keyCode == SHIFT)
+			velocity = 4;
+		}
+		if (key == '.') {
 			sprint_p2 = true;
+			velocity2 = 4;
+		}
 
 	}
 
 	public void keyReleased() {
+		System.out.println(velocity2);
 		if (key == 'b') {
 			b.move((Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5);
 		}
@@ -291,10 +290,18 @@ public class DrawingSurface extends PApplet {
 		if (keyCode == DOWN)
 			down_p2 = false;
 		// CNTRL for p1, SHIFt for p2
-		if (keyCode == CONTROL)
+//		if (keyCode == CONTROL) {
+		if (key == 'q') {
 			sprint_p1 = false;
-		if (keyCode == SHIFT)
+
+		}
+//		if (keyCode == SHIFT) {
+		if (key == '.') {
 			sprint_p2 = false;
+//			velocity2 = 10;
+//			System.out.println("sprinting p2 ");
+		}
+
 	}
 
 	public void mouseReleased() {
@@ -311,16 +318,16 @@ public class DrawingSurface extends PApplet {
 			}
 		}
 	}
-	
+
 	public void victory(boolean p1winner) {
 		background(255, 60, 80);
 		fill(255);
 		textSize(30);
 		pushStyle();
 		if (p1winner) {
-			text("Victory for Player 1!", 15, height-20);
+			text("Victory for Player 1!", 15, height - 20);
 		} else {
-			text("Victory for Player 2!", 15, height-20);
+			text("Victory for Player 2!", 15, height - 20);
 		}
 		text(p1point + "  " + p2point, 100, 150);
 		popStyle();
