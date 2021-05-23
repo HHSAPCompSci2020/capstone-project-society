@@ -108,16 +108,17 @@ public class DrawingSurface extends PApplet {
 			p1point++;
 			b.setX(200);
 			b.setY(200);
-			b.move((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
+			b.move((Math.random() + 0.5) * 2, (Math.random() - 0.5) * 4);
 		}
 
 		if (b.getX() < 0) {
 			p2point++;
 			b.setX(200);
 			b.setY(200);
-			b.move((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4);
+			b.move((Math.random() + 0.5) * -2, (Math.random() - 0.5) * 4);
 		}
 	
+		//deals with mines
 		if (numLeftMines == 3 && numRightMines == 3) {
 			//draws the mines
 			left[0].draw(this);
@@ -128,46 +129,73 @@ public class DrawingSurface extends PApplet {
 			right[2].draw(this);
 			
 			//checks whether paddles touch mines
-			if (p1.isPointInside(left[0].getX(), left[0].getY())
-					|| p1.isPointInside(left[1].getX(), left[1].getY())
-					|| p1.isPointInside(left[2].getX(), left[2].getY())) {
-				try {
-					TimeUnit.SECONDS.sleep(2);
-				} catch (InterruptedException e) {
-					System.err.format("IOException: %s%n", e);
-				}
+			if (p1.isPointInside(left[0].getX(), left[0].getY())) {
+				p1.freeze();
+				left[0].setX(length+10000);
+				left[0].setY(height+10000);
 			}
-
+			if (p1.isPointInside(left[1].getX(), left[1].getY())) {
+				p1.freeze();
+				left[1].setX(length+10000);
+				left[1].setY(height+10000);
+			}
+			if (p1.isPointInside(left[2].getX(), left[2].getY())) {
+				p1.freeze();
+				left[2].setX(length+10000);
+				left[2].setY(height+10000);
+			}
+			
+			if (p2.isPointInside(right[0].getX(), right[0].getY())) {
+				p2.freeze();
+				right[0].setX(length+10000);
+				right[0].setY(height+10000);
+			}
+			if (p2.isPointInside(right[1].getX(), right[1].getY())) {
+				p2.freeze();
+				right[1].setX(length+10000);
+				right[1].setY(height+10000);
+			}
+			if (p2.isPointInside(right[2].getX(), right[2].getY())) {
+				p2.freeze();
+				right[2].setX(length+10000);
+				right[2].setY(height+10000);
+			}
+			 
 		}
 		
 		
 		//left paddle movement
-		if (up_p1 && p1.getY() > 0) {
-			p1.move(0, -velocity);
+		if (!p1.isFrozen()) {
+			if (up_p1 && p1.getY() > 0) {
+				p1.move(0, -velocity);
+			}
+			if (right_p1 && p1.getX() < length / 2) {
+				p1.move(velocity, 0);
+			}
+			if (left_p1 && p1.getX() > 0) {
+				p1.move(-velocity, 0);
+			}
+			if (down_p1 && p1.getY() < height) {
+				p1.move(0, velocity);
+			}
 		}
-		if (right_p1 && p1.getX() < length / 2) {
-			p1.move(velocity, 0);
-		}
-		if (left_p1 && p1.getX() > 0) {
-			p1.move(-velocity, 0);
-		}
-		if (down_p1 && p1.getY() < height) {
-			p1.move(0, velocity);
-		}
-
+		
 		//right paddle movement
-		if (up_p2 && p2.getY() > 0) {
-			p2.move(0, -velocity);
+		if (!p2.isFrozen()){
+			if (up_p2 && p2.getY() > 0) {
+				p2.move(0, -velocity);
+			}
+			if (right_p2 && p2.getX() < length) {
+				p2.move(velocity, 0);
+			}	
+			if (left_p2 && p2.getX() > length / 2) {
+				p2.move(-velocity, 0);
+			}
+			if (down_p2 && p2.getY() < height) {
+				p2.move(0, velocity);
+			}
 		}
-		if (right_p2 && p2.getX() < length) {
-			p2.move(velocity, 0);
-		}	
-		if (left_p2 && p2.getX() > length / 2) {
-			p2.move(-velocity, 0);
-		}
-		if (down_p2 && p2.getY() < height) {
-			p2.move(0, velocity);
-		}	
+	
 	}
 
 	public void keyPressed() {

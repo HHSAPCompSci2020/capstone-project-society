@@ -12,7 +12,8 @@ import processing.core.PApplet;
 public class Paddle extends Shape {
 
 	private float length, width;
-
+	private int freezeLength = 1000;
+	private long freezeTime = 0;
 	
 	/**
 	 * Creates a paddle at points x, y in the drawing surface.
@@ -30,7 +31,13 @@ public class Paddle extends Shape {
 		width = 15f;
 	}
 
+	public boolean isFrozen() {
+		return (System.currentTimeMillis() < freezeTime + freezeLength);
+	}
 	
+	public void freeze() {
+		freezeTime = System.currentTimeMillis();
+	}
 	
 	public boolean isPointInside(double xInput, double yInput) {
 		boolean inside = false;
@@ -46,6 +53,7 @@ public class Paddle extends Shape {
 		super.draw(surface);
 		surface.rect((float) x, (float) y, (float) width, (float) length);
 //		System.out.println(x + " " + y);
+		
 	}
 
 	/**
