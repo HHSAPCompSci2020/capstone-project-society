@@ -9,6 +9,9 @@ import processing.core.PApplet;
 
 public class Ball extends Shape {
 
+	/**
+	 * @author Richard Zhang
+	 */
 	private final float extent;
 
 	/**

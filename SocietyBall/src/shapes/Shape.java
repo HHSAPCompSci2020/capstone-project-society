@@ -176,6 +176,11 @@ public class Shape {
 		return vY;
 	}
 
+	/**
+	 * Sets the shape's stroke and fill method to new RGB values
+	 * @param stroke new color for shape stroke
+	 * @param fill new fill color for shape
+	 */
 	public void setColor(Color stroke, Color fill) {
 		strokeColor = stroke;
 		fillColor = fill;
