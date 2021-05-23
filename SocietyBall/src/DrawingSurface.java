@@ -47,7 +47,7 @@ public class DrawingSurface extends PApplet {
 		int y = (int) (Math.random() * 400);
 		height = 300;
 		length = 400;
-		b = new Ball(height / 2, length / 2);
+		b = new Ball(length / 2, height / 2);
 		p1 = new Paddle(50, 100);
 		p2 = new Paddle(350, 100);
 		numLeftMines = 0;
@@ -86,7 +86,7 @@ public class DrawingSurface extends PApplet {
 		textSize(10);
 		text("The left side can place 3 mines with left click. \nThe right side can place 3 mines with right click. \nOnce you placed the mines, press 'B' on your keyboard to start.",
 				15, height-20);
-		text(p1point + "  " + p2point, 200, 50);
+		text(p1point + "   " + p2point, length/2-9, 50);
 
 		popStyle();
 
@@ -324,8 +324,9 @@ public class DrawingSurface extends PApplet {
 	}
 	
 	public void victory(boolean p1winner) {
+		boolean test = false;
 		clear();
-		fill(0);
+		fill(255);
 		textSize(30);
 		pushStyle();
 		if (p1winner) {
@@ -335,10 +336,13 @@ public class DrawingSurface extends PApplet {
 		}
 		text(p1point + "  " + p2point, 100, 150);
 		popStyle();
+		test = true;
+		if (test) {
 		try {
 			Thread.sleep(99999999);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
+		}
 		}
 	}
 
