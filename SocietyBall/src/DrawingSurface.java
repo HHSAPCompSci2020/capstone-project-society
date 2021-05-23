@@ -324,8 +324,7 @@ public class DrawingSurface extends PApplet {
 	}
 	
 	public void victory(boolean p1winner) {
-		boolean test = false;
-		clear();
+		background(255, 60, 80);
 		fill(255);
 		textSize(30);
 		pushStyle();
@@ -336,14 +335,6 @@ public class DrawingSurface extends PApplet {
 		}
 		text(p1point + "  " + p2point, 100, 150);
 		popStyle();
-		test = true;
-		if (test) {
-		try {
-			Thread.sleep(99999999);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		}
 	}
 
 }
