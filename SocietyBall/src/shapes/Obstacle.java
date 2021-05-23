@@ -29,7 +29,7 @@ public class Obstacle extends Shape {
 	public void draw(PApplet surface)
 	{
 		super.draw(surface);
-		surface.rect((float)x,(float)y,(float)(25),(float)(25));
+		surface.rect((float)x,(float)y,(float)(50),(float)(5));
 		// System.out.println(x + " " + y);
 	}
 	
