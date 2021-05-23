@@ -85,7 +85,7 @@ public class Paddle extends Shape {
 	public ArrayList<Point> getCorners() {
 		ArrayList<Point> corners = new ArrayList<Point>(4);
 		corners.add(new Point((int)x, (int)(y)));
-		corners.add(new Point((int) x, (int) (y + length)));
+		corners.add(new Point((int)x, (int) (y + length)));
 		corners.add(new Point((int) (x + width), (int) y));
 		corners.add(new Point((int) (x + width), (int) (y+length)));
 
