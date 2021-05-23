@@ -177,7 +177,7 @@ public class DrawingSurface extends PApplet {
 			if (up_p1 && p1.getY() > 0) {
 				p1.move(0, -velocity);
 			}
-			if (right_p1 && p1.getX() < length / 2) {
+			if (right_p1 && p1.getX() < length / 2-15) {
 				p1.move(velocity, 0);
 			}
 			if (left_p1 && p1.getX() > 0) {
