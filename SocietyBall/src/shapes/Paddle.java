@@ -18,6 +18,7 @@ public class Paddle extends Shape {
 	public float length, width;
 	private int freezeLength = 1000;
 	private long freezeTime = 0;
+	private long coolDownTime = 0;
 	
 	/**
 	 * Creates a paddle at points x, y in the drawing surface.
