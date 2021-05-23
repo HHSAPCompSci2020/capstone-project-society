@@ -65,6 +65,7 @@ public class DrawingSurface extends PApplet {
 		b.draw(this);
 		this.color(0, 255, 0);
 
+		this.line(length/2, 0, length/2, height);
 		p1.draw(this);
 		p2.draw(this);
 		b.act();
@@ -86,8 +87,8 @@ public class DrawingSurface extends PApplet {
 //			if (p1.isPointInside(b.getX(), b.getY())) {
 			if (p1.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
 //				b.reverseVelocties();
-				b.setvX(Math.abs(b.getvX() + 1));
-				b.setvY(Math.abs(b.getvY() + 1));
+				b.setvX(Math.abs(b.getvX() + 0.5));
+				b.setvY(Math.abs(b.getvY() + 0.5));
 
 			}
 			if (p2.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
@@ -95,8 +96,8 @@ public class DrawingSurface extends PApplet {
 				// How do we want to test this type of interaction.
 				// b.setvX(b.getvX() + p2.getvX());
 				// b.setvY(b.getvY() + p2.getvY());
-				b.setvX(-Math.abs(b.getvX() + 1));
-				b.setvY(-Math.abs(b.getvY() + 1));
+				b.setvX(-Math.abs(b.getvX() - 0.5));
+				b.setvY(-Math.abs(b.getvY() - 0.5));
 			}
 			if (o1.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
 				b.reverseVelocties();
