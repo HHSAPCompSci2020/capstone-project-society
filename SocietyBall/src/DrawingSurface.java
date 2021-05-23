@@ -112,30 +112,20 @@ public class DrawingSurface extends PApplet {
 			
 			if(o1.isPointInside(p1.getCorners().get(x).getX(), p1.getCorners().get(x).getY()))
 			{
-				velocity = 0.5;
+				velocity = 0.3;
 			}
 			else 
 				velocity = 2;
 			
-			if(o1.isPointInside(p2.getCorners().get(x).getX(), p2.getCorners().get(x).getY()))
-			{
-				velocity2 = 0.5;
-			}
-			else 
-				velocity2 = 2;
+			
 			if (o2.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
 				b.reverseVelocties();
 			}
 			
-			if(o2.isPointInside(p1.getCorners().get(x).getX(), p1.getCorners().get(x).getY()))
-			{
-				velocity = 0.5;
-			}
-			else 
-				velocity = 2;
+			
 			if(o2.isPointInside(p2.getCorners().get(x).getX(), p2.getCorners().get(x).getY()))
 			{
-				velocity2 = 0.5;
+				velocity2 = 0.3;
 			}
 			else 
 				velocity2 = 2;
