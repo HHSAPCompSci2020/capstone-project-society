@@ -92,7 +92,7 @@ public class DrawingSurface extends PApplet {
 
 		fill(0);
 		textSize(10);
-		text("The left side can place 3 mines with left click. \nThe right side can place 3 mines with right click. \nOnce you placed the mines, press 'B' on your keyboard to start.",
+		text("The left side can place 3 mines with right click. \nThe right side can place 3 mines with left click. \nOnce you placed the mines, press 'B' on your keyboard to start.",
 				15, height - 20);
 		text(p1point + "   " + p2point, length / 2 - 9, 50);
 
@@ -108,7 +108,6 @@ public class DrawingSurface extends PApplet {
 			}
 			if (p2.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
 //				b.reverseVelocties();
-				// How do we want to test this type of interaction.
 				// b.setvX(b.getvX() + p2.getvX());
 				// b.setvY(b.getvY() + p2.getvY());
 				b.setvX(-Math.abs(b.getvX() - 0.2));
@@ -272,8 +271,6 @@ public class DrawingSurface extends PApplet {
 			left_p2 = true;
 		if (keyCode == DOWN)
 			down_p2 = true;
-		// CNTRL for p1, SHIFt for p2
-//		if (keyCode == CONTROL) {
 		if (key == 'q') {
 			sprint_p1 = true;
 			velocity = 4;
@@ -306,17 +303,11 @@ public class DrawingSurface extends PApplet {
 			left_p2 = false;
 		if (keyCode == DOWN)
 			down_p2 = false;
-		// CNTRL for p1, SHIFt for p2
-//		if (keyCode == CONTROL) {
 		if (key == 'q') {
 			sprint_p1 = false;
-
 		}
-//		if (keyCode == SHIFT) {
 		if (key == '.') {
 			sprint_p2 = false;
-//			velocity2 = 10;
-//			System.out.println("sprinting p2 ");
 		}
 
 	}

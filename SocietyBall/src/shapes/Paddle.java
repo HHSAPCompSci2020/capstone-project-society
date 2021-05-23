@@ -19,6 +19,7 @@ public class Paddle extends Shape {
 	public float length, width;
 	private int freezeLength = 1000;
 	private long freezeTime = 0;
+	private long coolDownTime = 0;
 	
 	/**
 	 * Creates a paddle at points x, y in the drawing surface.
@@ -85,7 +86,7 @@ public class Paddle extends Shape {
 	public ArrayList<Point> getCorners() {
 		ArrayList<Point> corners = new ArrayList<Point>(4);
 		corners.add(new Point((int)x, (int)(y)));
-		corners.add(new Point((int) x, (int) (y + length)));
+		corners.add(new Point((int)x, (int) (y + length)));
 		corners.add(new Point((int) (x + width), (int) y));
 		corners.add(new Point((int) (x + width), (int) (y+length)));
 
