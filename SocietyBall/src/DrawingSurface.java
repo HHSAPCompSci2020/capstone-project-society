@@ -34,7 +34,8 @@ public class DrawingSurface extends PApplet {
 	private int numRightMines;
 	private int p1point;
 	private int p2point;
-	private int velocity = 2;
+	private double velocity = 2;
+	private double velocity2 = 2;
 	private Timer timer;
 	boolean up_p1, down_p1, left_p1, right_p1, up_p2, down_p2, left_p2, right_p2;
 	private Obstacle o1;
@@ -107,32 +108,37 @@ public class DrawingSurface extends PApplet {
 			}
 			if (o1.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
 				b.reverseVelocties();
-				System.out.println("Collision");
 			}
 			
 			if(o1.isPointInside(p1.getCorners().get(x).getX(), p1.getCorners().get(x).getY()))
 			{
-				p1.isFrozen();
+				velocity = 0.5;
 			}
+			else 
+				velocity = 2;
 			
 			if(o1.isPointInside(p2.getCorners().get(x).getX(), p2.getCorners().get(x).getY()))
 			{
-				p2.isFrozen();
+				velocity2 = 0.5;
 			}
+			else 
+				velocity2 = 2;
 			if (o2.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
 				b.reverseVelocties();
-				System.out.println("Collision");
 			}
 			
 			if(o2.isPointInside(p1.getCorners().get(x).getX(), p1.getCorners().get(x).getY()))
 			{
-				p1.isFrozen();
+				velocity = 0.5;
 			}
-			
+			else 
+				velocity = 2;
 			if(o2.isPointInside(p2.getCorners().get(x).getX(), p2.getCorners().get(x).getY()))
 			{
-				p2.isFrozen();
+				velocity2 = 0.5;
 			}
+			else 
+				velocity2 = 2;
 		}
 
 		// Checks if out of bounds/Score keeping
@@ -232,16 +238,16 @@ public class DrawingSurface extends PApplet {
 		// right paddle movement
 		if (!p2.isFrozen()) {
 			if (up_p2 && p2.getY() > 0) {
-				p2.move(0, -velocity);
+				p2.move(0, -velocity2);
 			}
 			if (right_p2 && p2.getX() < length) {
-				p2.move(velocity, 0);
+				p2.move(velocity2, 0);
 			}
 			if (left_p2 && p2.getX() > length / 2) {
-				p2.move(-velocity, 0);
+				p2.move(-velocity2, 0);
 			}
 			if (down_p2 && p2.getY() < height) {
-				p2.move(0, velocity);
+				p2.move(0, velocity2);
 			}
 			if (sprint_p2) {
 				p2.sprint(true);
