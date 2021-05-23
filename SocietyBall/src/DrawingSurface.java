@@ -65,7 +65,10 @@ public class DrawingSurface extends PApplet {
 		b.draw(this);
 		this.color(0, 255, 0);
 
-		this.line(length/2, 0, length/2, height);
+		stroke(150);
+		this.line(length/2, 0, length/2, height+100);
+		
+		
 		p1.draw(this);
 		p2.draw(this);
 		b.act();
@@ -128,6 +131,8 @@ public class DrawingSurface extends PApplet {
 			left[0].draw(this);
 			left[1].draw(this);
 			left[2].draw(this);
+			
+			stroke(104, 102, 0);
 			right[0].draw(this);
 			right[1].draw(this);
 			right[2].draw(this);
