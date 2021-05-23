@@ -11,7 +11,7 @@ import processing.core.PApplet;
 
 public class Paddle extends Shape {
 
-	private float length, width;
+	public float length, width;
 	private int freezeLength = 1000;
 	private long freezeTime = 0;
 	
@@ -48,7 +48,9 @@ public class Paddle extends Shape {
 
 		return inside;
 	}
+	
 
+	
 	public void draw(PApplet surface) {
 		super.draw(surface);
 		surface.rect((float) x, (float) y, (float) width, (float) length);

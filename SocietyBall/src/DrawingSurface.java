@@ -107,16 +107,18 @@ public class DrawingSurface extends PApplet {
 		// Checks if out of bounds/Score keeping
 		if (b.getX() > 400) {
 			p1point++;
-			b.setX(200);
-			b.setY(200);
-			b.move((Math.random() + 0.5) * 2, (Math.random() - 0.5) * 4);
+			b.resetPosition(length/2,height/2);
+			p1.resetPosition(50, height/2);
+			p2.resetPosition(length-50-p2.width, height/2);
+			b.move((Math.random() + 0.5) * 2, (Math.random() - 0.5) * 2);
 		}
 
 		if (b.getX() < 0) {
 			p2point++;
-			b.setX(200);
-			b.setY(200);
-			b.move((Math.random() + 0.5) * -2, (Math.random() - 0.5) * 4);
+			b.resetPosition(length/2,height/2);
+			p1.resetPosition(50, height/2);
+			p2.resetPosition(length-50-p2.width, height/2);
+			b.move((Math.random() + 0.5) * -2, (Math.random() - 0.5) * 2);
 		}
 
 		// deals with mines

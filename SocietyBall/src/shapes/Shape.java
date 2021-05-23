@@ -122,6 +122,11 @@ public class Shape {
 		this.y = y;
 	}
 
+	public void resetPosition(double x, double y) {
+		this.setX(x);
+		this.setY(y);
+	}
+	
 	/**
 	 * Sets field vX to a new parameter.
 	 * 
