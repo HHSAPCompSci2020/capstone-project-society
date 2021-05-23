@@ -83,6 +83,12 @@ public class Paddle extends Shape {
 		
 
 //	}
+	
+	/**
+	 * Gets an ArrayList of all the corners of the paddle.
+	 * 
+	 * @return corners All four corners of the paddle in Point
+	 */
 	public ArrayList<Point> getCorners() {
 		ArrayList<Point> corners = new ArrayList<Point>(4);
 		corners.add(new Point((int)x, (int)(y)));

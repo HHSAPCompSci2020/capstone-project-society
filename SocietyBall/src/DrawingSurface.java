@@ -25,8 +25,8 @@ import shapes.Paddle;
 public class DrawingSurface extends PApplet {
 
 	private Ball b;
-	private Mine left[] = new Mine[3];
-	private Mine right[] = new Mine[3];
+	private Mine left[];
+	private Mine right[];
 	private Paddle p1;
 	private Paddle p2;
 	private int height;
@@ -35,14 +35,17 @@ public class DrawingSurface extends PApplet {
 	private int numRightMines;
 	private int p1point;
 	private int p2point;
-	private double velocity = 2;
-	private double velocity2 = 2;
-	private boolean gameOver = false;
+	private double velocity;
+	private double velocity2;
+	private boolean gameOver;
 	private boolean up_p1, down_p1, left_p1, right_p1, up_p2, down_p2, left_p2, right_p2;
 	private Obstacle o1;
 	private Obstacle o2;
 	boolean sprint_p1, sprint_p2;
 
+	/**
+	 * no args constructor
+	 */
 	public DrawingSurface() {
 		int x = (int) (Math.random() * 150);
 		int y = (int) (Math.random() * 400);
@@ -51,14 +54,23 @@ public class DrawingSurface extends PApplet {
 		b = new Ball(length / 2, height / 2);
 		p1 = new Paddle(50, 100);
 		p2 = new Paddle(350, 100);
+		left = new Mine[3];
+		right = new Mine[3];
+
 		numLeftMines = 0;
 		numRightMines = 0;
 		p1point = 0;
 		p2point = 0;
+		velocity = 2;
+		velocity2 = 2;
+		gameOver = false;
 		o1 = new Obstacle(x, y);
 		o2 = new Obstacle((int) (Math.random() * 150 + 250), (int) Math.random() * 200);
 	}
 
+	/**
+	 * Draws all the objects, and repeats continuously while program is running.
+	 */
 	public void draw() {
 		background(255); // Clear the screen with a white background
 		textSize(12);
@@ -92,7 +104,7 @@ public class DrawingSurface extends PApplet {
 
 		fill(0);
 		textSize(10);
-		text("The left side can place 3 mines with right click. \nThe right side can place 3 mines with left click. \nOnce you placed the mines, press 'B' on your keyboard to start. \nPress 'q' to sprint for Player 1(left) \nPress '.' to sprint for Player 2(Right)." ,
+		text("The left side can place 3 mines with right click. \nThe right side can place 3 mines with left click. \nOnce you placed the mines, press 'B' on your keyboard to start. \nPress 'q' to sprint for Player 1(left) \nPress '.' to sprint for Player 2(Right).",
 				15, height - 20);
 		text(p1point + "   " + p2point, length / 2 - 9, 50);
 
@@ -289,7 +301,7 @@ public class DrawingSurface extends PApplet {
 	 * Used to start ball movement initially, also used for two-player movement.
 	 */
 	public void keyReleased() {
-		System.out.println(velocity2);
+//		System.out.println(velocity2);
 		if (key == 'b') {
 			b.move((Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5);
 		}
@@ -319,7 +331,8 @@ public class DrawingSurface extends PApplet {
 	}
 
 	/**
-	 * Used to check if mouse is released, places mines at the release locations mouseX and mouseY
+	 * Used to check if mouse is released, places mines at the release locations
+	 * mouseX and mouseY
 	 */
 	public void mouseReleased() {
 		if (numLeftMines < 3) {
@@ -338,20 +351,21 @@ public class DrawingSurface extends PApplet {
 
 	/**
 	 * Displays the victory screen after one player wins
+	 * 
 	 * @param p1winner if the player one(left) won the game or not.
 	 */
 	public void victory(boolean p1winner) {
-		background(0,0,0);
+		background(0, 0, 0);
 		fill(255);
 		textSize(30);
 		pushStyle();
 
 		if (p1winner) {
-			text("Victory for Player 1!", length/2 - 140, height - 20);
+			text("Victory for Player 1!", length / 2 - 140, height - 20);
 		} else {
-			text("Victory for Player 2!", length/2 - 140, height - 20);
+			text("Victory for Player 2!", length / 2 - 140, height - 20);
 		}
-		text(p1point + "  " + p2point, length/2 - 30, 150);
+		text(p1point + "  " + p2point, length / 2 - 30, 150);
 		popStyle();
 		gameOver = true;
 	}
