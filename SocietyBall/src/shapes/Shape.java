@@ -12,7 +12,8 @@ import processing.core.PApplet;
 public class Shape {
 	protected double x;
 	protected double y;
-	private Color fillColor, strokeColor;
+	private Color fillColor;
+	private Color strokeColor;
 	private int stroke;
 	protected double length, width;
 	protected double vX;
@@ -125,7 +126,7 @@ public class Shape {
 		this.setX(x);
 		this.setY(y);
 	}
-	
+
 	/**
 	 * Sets field vX to a new parameter.
 	 * 
@@ -150,10 +151,9 @@ public class Shape {
 	 * @param surface used to access the method to draw the shapes
 	 **/
 	public void draw(PApplet surface) {
-		if (filled)
-			surface.fill(fillColor.getRed(), fillColor.getGreen(), fillColor.getBlue());
-		else
-			surface.noFill();
+//		surface.noFill();
+		surface.fill(fillColor.getRed(), fillColor.getGreen(), fillColor.getBlue());
+
 		surface.strokeWeight(stroke);
 		surface.stroke(strokeColor.getRed(), strokeColor.getGreen(), strokeColor.getBlue());
 	}
@@ -170,9 +170,14 @@ public class Shape {
 	/**
 	 * Outputs field vY
 	 * 
-	 * @return vY  y-Velocity of shape
+	 * @return vY y-Velocity of shape
 	 */
 	public double getvY() {
 		return vY;
+	}
+
+	public void setColor(Color stroke, Color fill) {
+		strokeColor = stroke;
+		fillColor = fill;
 	}
 }

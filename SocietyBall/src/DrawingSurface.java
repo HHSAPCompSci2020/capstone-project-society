@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 
@@ -63,19 +64,28 @@ public class DrawingSurface extends PApplet {
 		textSize(12);
 		fill(0);
 
-		this.color(255, 0, 0);
+//		stroke(0,255,0);
+		b.setColor(Color.green, Color.white);
 		b.draw(this);
-		this.color(0, 255, 0);
+//		this.color(0, 255, 0);
 
 		stroke(150);
 		this.line(length / 2, 0, length / 2, height + 100);
 
+		p1.setColor(Color.red, Color.yellow);
 		p1.draw(this);
+
+		p2.setColor(Color.blue, Color.pink);
 		p2.draw(this);
 		b.act();
 		p1.act();
 		p2.act();
+
+		o1.setColor(Color.BLACK, Color.black);
+		o2.setColor(Color.BLACK, Color.black);
+
 		o1.draw(this);
+
 		o2.draw(this);
 
 		pushStyle();
@@ -151,11 +161,18 @@ public class DrawingSurface extends PApplet {
 		// deals with mines
 		if (numLeftMines == 3 && numRightMines == 3) {
 			// draws the mines
+			left[0].setColor(Color.blue, Color.blue);
+			left[1].setColor(Color.blue, Color.blue);
+			left[2].setColor(Color.blue, Color.blue);
+
 			left[0].draw(this);
 			left[1].draw(this);
 			left[2].draw(this);
 
 			stroke(104, 102, 0);
+			right[0].setColor(Color.red, Color.red);
+			right[1].setColor(Color.red, Color.red);
+			right[2].setColor(Color.red, Color.red);
 			right[0].draw(this);
 			right[1].draw(this);
 			right[2].draw(this);
