@@ -42,7 +42,7 @@ public class DrawingSurface extends PApplet {
 	boolean sprint_p1, sprint_p2;
 
 	public DrawingSurface() {
-		int x = (int) (Math.random() * 400);
+		int x = (int) (Math.random() * 200);
 		int y = (int) (Math.random() * 400);
 		height = 300;
 		length = 400;
@@ -77,6 +77,7 @@ public class DrawingSurface extends PApplet {
 		p1.act();
 		p2.act();
 		o1.draw(this);
+		o2.draw(this);
 
 		pushStyle();
 
