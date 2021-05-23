@@ -92,7 +92,7 @@ public class DrawingSurface extends PApplet {
 
 		fill(0);
 		textSize(10);
-		text("The left side can place 3 mines with right click. \nThe right side can place 3 mines with left click. \nOnce you placed the mines, press 'B' on your keyboard to start.",
+		text("The left side can place 3 mines with right click. \nThe right side can place 3 mines with left click. \nOnce you placed the mines, press 'B' on your keyboard to start. \nPress 'q' to sprint for Player 1(left) \nPress '.' to sprint for Player 2(Right)." ,
 				15, height - 20);
 		text(p1point + "   " + p2point, length / 2 - 9, 50);
 
@@ -254,6 +254,9 @@ public class DrawingSurface extends PApplet {
 
 	}
 
+	/**
+	 * Detects movement during the game using the keyboard for both paddles.
+	 */
 	public void keyPressed() {
 		if (key == 'w')
 			up_p1 = true;
@@ -282,6 +285,9 @@ public class DrawingSurface extends PApplet {
 
 	}
 
+	/**
+	 * Used to start ball movement initially, also used for two-player movement.
+	 */
 	public void keyReleased() {
 		System.out.println(velocity2);
 		if (key == 'b') {
@@ -312,6 +318,9 @@ public class DrawingSurface extends PApplet {
 
 	}
 
+	/**
+	 * Used to check if mouse is released, places mines at the release locations mouseX and mouseY
+	 */
 	public void mouseReleased() {
 		if (numLeftMines < 3) {
 			if (mouseButton == LEFT) {
@@ -327,17 +336,22 @@ public class DrawingSurface extends PApplet {
 		}
 	}
 
+	/**
+	 * Displays the victory screen after one player wins
+	 * @param p1winner if the player one(left) won the game or not.
+	 */
 	public void victory(boolean p1winner) {
-		background(255, 60, 80);
+		background(0,0,0);
 		fill(255);
 		textSize(30);
 		pushStyle();
+
 		if (p1winner) {
-			text("Victory for Player 1!", 15, height - 20);
+			text("Victory for Player 1!", length/2 - 140, height - 20);
 		} else {
-			text("Victory for Player 2!", 15, height - 20);
+			text("Victory for Player 2!", length/2 - 140, height - 20);
 		}
-		text(p1point + "  " + p2point, 100, 150);
+		text(p1point + "  " + p2point, length/2 - 30, 150);
 		popStyle();
 		gameOver = true;
 	}
