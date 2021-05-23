@@ -36,8 +36,8 @@ public class DrawingSurface extends PApplet {
 	private int p2point;
 	private double velocity = 2;
 	private double velocity2 = 2;
-	private Timer timer;
-	boolean up_p1, down_p1, left_p1, right_p1, up_p2, down_p2, left_p2, right_p2;
+	private boolean gameOver = false;
+	private boolean up_p1, down_p1, left_p1, right_p1, up_p2, down_p2, left_p2, right_p2;
 	private Obstacle o1;
 	private Obstacle o2;
 	boolean sprint_p1, sprint_p2;
@@ -54,7 +54,6 @@ public class DrawingSurface extends PApplet {
 		numRightMines = 0;
 		p1point = 0;
 		p2point = 0;
-		timer = new Timer();
 		o1 = new Obstacle(x, y);
 		o2 = new Obstacle((int)(Math.random()*150+250),(int)Math.random()*200);
 	}
@@ -132,7 +131,7 @@ public class DrawingSurface extends PApplet {
 		}
 
 		// Checks if out of bounds/Score keeping
-		if (b.getX() > 400) {
+		if (b.getX() > 400 && !gameOver) {
 			p1point++;
 			b.resetPosition(length/2,height/2);
 			p1.resetPosition(50, height/2);
@@ -140,7 +139,7 @@ public class DrawingSurface extends PApplet {
 			b.move((Math.random() + 0.5) * 2, (Math.random() - 0.5) * 2);
 		}
 
-		if (b.getX() < 0) {
+		if (b.getX() < 0 && !gameOver) {
 			p2point++;
 			b.resetPosition(length/2,height/2);
 			p1.resetPosition(50, height/2);
@@ -325,6 +324,7 @@ public class DrawingSurface extends PApplet {
 		}
 		text(p1point + "  " + p2point, 100, 150);
 		popStyle();
+		gameOver = true;
 	}
 
 }
