@@ -80,8 +80,8 @@ public class DrawingSurface extends PApplet {
 
 		fill(0);
 		textSize(10);
-		text("The left side can place 3 mines with left click. The right side can place 3 mines with right click. Once you placed the mines, press 'B' on your keyboard to start.",
-				15, 15);
+		text("The left side can place 3 mines with left click. \nThe right side can place 3 mines with right click. \nOnce you placed the mines, press 'B' on your keyboard to start.",
+				15, height-20);
 		text(p1point + "  " + p2point, 200, 50);
 
 		popStyle();
@@ -90,8 +90,8 @@ public class DrawingSurface extends PApplet {
 //			if (p1.isPointInside(b.getX(), b.getY())) {
 			if (p1.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
 //				b.reverseVelocties();
-				b.setvX(Math.abs(b.getvX() + 0.5));
-				b.setvY(Math.abs(b.getvY() + 0.5));
+				b.setvX(Math.abs(b.getvX() + 0.2));
+				b.setvY(Math.abs(b.getvY() + 0.2));
 
 			}
 			if (p2.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
@@ -99,8 +99,8 @@ public class DrawingSurface extends PApplet {
 				// How do we want to test this type of interaction.
 				// b.setvX(b.getvX() + p2.getvX());
 				// b.setvY(b.getvY() + p2.getvY());
-				b.setvX(-Math.abs(b.getvX() - 0.5));
-				b.setvY(-Math.abs(b.getvY() - 0.5));
+				b.setvX(-Math.abs(b.getvX() - 0.2));
+				b.setvY(-Math.abs(b.getvY() - 0.2));
 			}
 			if (o1.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
 				b.reverseVelocties();
