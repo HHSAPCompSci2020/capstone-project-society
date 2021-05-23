@@ -38,6 +38,7 @@ public class DrawingSurface extends PApplet {
 	private Timer timer;
 	boolean up_p1, down_p1, left_p1, right_p1, up_p2, down_p2, left_p2, right_p2;
 	private Obstacle o1;
+	private Obstacle o2;
 	boolean sprint_p1, sprint_p2;
 
 	public DrawingSurface() {
@@ -54,6 +55,7 @@ public class DrawingSurface extends PApplet {
 		p2point = 0;
 		timer = new Timer();
 		o1 = new Obstacle(x, y);
+		o2 = new Obstacle((int)(Math.random()*200+200),(int)Math.random()*200);
 	}
 
 	public void draw() {
@@ -105,6 +107,30 @@ public class DrawingSurface extends PApplet {
 			if (o1.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
 				b.reverseVelocties();
 				System.out.println("Collision");
+			}
+			
+			if(o1.isPointInside(p1.getCorners().get(x).getX(), p1.getCorners().get(x).getY()))
+			{
+				p1.isFrozen();
+			}
+			
+			if(o1.isPointInside(p2.getCorners().get(x).getX(), p2.getCorners().get(x).getY()))
+			{
+				p2.isFrozen();
+			}
+			if (o2.isPointInside(b.getCorners().get(x).getX(), b.getCorners().get(x).getY())) {
+				b.reverseVelocties();
+				System.out.println("Collision");
+			}
+			
+			if(o2.isPointInside(p1.getCorners().get(x).getX(), p1.getCorners().get(x).getY()))
+			{
+				p1.isFrozen();
+			}
+			
+			if(o2.isPointInside(p2.getCorners().get(x).getX(), p2.getCorners().get(x).getY()))
+			{
+				p2.isFrozen();
 			}
 		}
 

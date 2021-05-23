@@ -1,5 +1,8 @@
 package shapes;
 
+import java.awt.Point;
+import java.util.ArrayList;
+
 import processing.core.PApplet;
 
 /**
@@ -11,6 +14,7 @@ import processing.core.PApplet;
 
 public class Paddle extends Shape {
 
+	private final float extent = 20f;
 	public float length, width;
 	private int freezeLength = 1000;
 	private long freezeTime = 0;
@@ -74,6 +78,16 @@ public class Paddle extends Shape {
 			vX = 0.5 * vX;
 			vY = 0.5 * vY;
 		}
+
+	}
+	public ArrayList<Point> getCorners() {
+		ArrayList<Point> corners = new ArrayList<Point>(4);
+		corners.add(new Point((int) x, (int) (y + extent / 2)));
+		corners.add(new Point((int) x, (int) (y - extent / 2)));
+		corners.add(new Point((int) (x - extent / 2), (int) y));
+		corners.add(new Point((int) (x + extent / 2), (int) y));
+
+		return corners;
 
 	}
 
