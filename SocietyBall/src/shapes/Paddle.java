@@ -15,11 +15,9 @@ import processing.core.PApplet;
 
 public class Paddle extends Shape {
 
-	private final float extent = 20f;
 	public float length, width;
-	private int freezeLength = 1000;
-	private long freezeTime = 0;
-	private long coolDownTime = 0;
+	private int freezeLength;
+	private long freezeTime;
 	
 	/**
 	 * Creates a paddle at points x, y in the drawing surface.
@@ -35,6 +33,8 @@ public class Paddle extends Shape {
 		this.y = y;
 		length = 40f;
 		width = 15f;
+		freezeLength = 1000;
+		freezeTime =0;
 	}
 
 	public boolean isFrozen() {
